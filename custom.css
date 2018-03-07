@@ -1,0 +1,46 @@
+body{
+    background: #383847;
+}
+
+body, input, select, textarea {
+    color: #c17b9f;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 1.65;
+}
+
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #c17b9f;
+  color: #c17b9f;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 18px 0;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #c17b9f;
+}
+
+
+.btn-default {
+  color: #333;
+  background-color: #c17b9f;
+  border-color: #404040;
+}
+
+
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #8b4167;
+  border-color: #2d2d2d;
+}
