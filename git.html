@@ -20,28 +20,69 @@
 
   <div class="container">	
     <p class="text-justify">
-      Create a wee repository on a server other than Github.
+      "Remove everything that has no relevance to the story. If you say in the first chapter that there is a rifle hanging on the wall, in the second or third chapter it absolutely must go off. If it's not going to be fired, it shouldn't be hanging there."
     </p>
+    <p class="text-right">
+	<font style="font-variant: small-caps">Anton Chekhov</font>
+      </p>
   </div>
 
   <div class="container">
     <div class="well-lite well-sm">
       <p class="p-dark text-justify">
-	directory on your local machine.
+	Create a wee repository on a server other than Github. First we need to make a directory on your local machine.
       </p>
+      <div class="well-wite well-sm custom-block ">
+       	<p class="p-dark-code text-justify custom">
+	  $ mkdir <sc>project</sc>
+	</p>
+      </div>
+
       <p class="p-dark text-justify">
-	"Remove everything that has no relevance to the story. If you say in the first chapter that there is a rifle hanging on the wall, in the second or third chapter it absolutely must go off. If it's not going to be fired, it shouldn't be hanging there."	
+	Next we need to initialise it as a git repository.
       </p>
-      <p class="p-dark text-right">
-	<font style="font-variant: small-caps">Anton Chekhov</font>
-      </p>
-      <div class="well-wite well-sm">
-       	<p class="p-dark-code text-justify">
-	  $ mkdir <sc>PROJECT</sc>
+      <div class="well-wite well-sm custom-block ">
+       	<p class="p-dark-code text-left custom">
+	  $ cd <sc>project</sc>
+	  <br>
+	  $ git init
+	</p>
+      </div>
+      <p class="p-dark text-justify">Then we need to clone it into a bare respository.</p>
+      <div class="well-wite well-sm custom-block ">
+	<p class="p-dark-code text-left custom">
+	  $ cd ../
+	  <br>
+	  $ git clone --bare <sc>project project</sc>.git
+	</p>
+      </div>
+      <p class="p-dark text-justify">Ignore the warnings: Cloning into bare repository '<font style="font-variant: small-caps">project</font>.git'...
+      warning: You appear to have cloned an empty repository.
+      done.</p>
+      <div class="well-wite well-sm custom-block ">
+	<p class="p-dark-code text-left custom">
+	  $ scp -r <sc>PROJECT</sc>.git user@xxxx.xx.xx.xx:/opt/git/
+	  <br>
+	  $ rm -r <sc>PROJECT PROJECT</sc>.git
+	  <br>
+	  $ git clone  <sc>PROJECT</sc>.git
+	</p>
+      </div>
+      
+      <p class="p-dark text-justify">warning: You appear to have cloned an empty repository.</p>
+      <div class="well-wite well-sm custom-block ">
+	<p class="p-dark-code text-left custom">
+	  $ touch test.txt
+	  <br>
+	  $ git add test.txt
+	  <br>
+	  $ git commit -m "Testing git repo."
+	  <br>
+	  $ git push origin master
 	</p>
       </div>
     </div>
-</div>
+  </div>
 
 
  
