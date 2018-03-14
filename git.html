@@ -23,18 +23,26 @@
       "Remove everything that has no relevance to the story. If you say in the first chapter that there is a rifle hanging on the wall, in the second or third chapter it absolutely must go off. If it's not going to be fired, it shouldn't be hanging there."
     </p>
     <p class="text-right">
-	<font style="font-variant: small-caps">Anton Chekhov</font>
+	<font class="sc">Anton Chekhov</font>
       </p>
   </div>
 
   <div class="container">
     <div class="well-lite well-sm">
       <p class="p-dark text-justify">
+	I am <font class="sc">assuming</font> the git is already installed on the server. But in case it isn't intalled on your local machine, that's the first thing we need to do:
+      </p>
+      <div class="well-wite well-sm custom-block ">
+       	<p class="p-dark-code text-justify custom">
+	  $ sudo apt-get install git
+	</p>
+      </div>
+      <p class="p-dark text-justify">
 	Create a wee repository on a server other than Github. First we need to make a directory on your local machine.
       </p>
       <div class="well-wite well-sm custom-block ">
        	<p class="p-dark-code text-justify custom">
-	  $ mkdir <sc>project</sc>
+	  
 	</p>
       </div>
 
@@ -43,8 +51,10 @@
       </p>
       <div class="well-wite well-sm custom-block ">
        	<p class="p-dark-code text-left custom">
-	  $ cd <sc>project</sc>
-	  <br>
+	  $ mkdir <sc>project_name</sc>
+	  </br>
+	  $ cd <sc>project_name</sc>
+	  </br>
 	  $ git init
 	</p>
       </div>
@@ -52,20 +62,20 @@
       <div class="well-wite well-sm custom-block ">
 	<p class="p-dark-code text-left custom">
 	  $ cd ../
-	  <br>
-	  $ git clone --bare <sc>project project</sc>.git
+	  </br>
+	  $ git clone --bare <sc>project_name project_name</sc>.git
 	</p>
       </div>
-      <p class="p-dark text-justify">Ignore the warnings: Cloning into bare repository '<font style="font-variant: small-caps">project</font>.git'...
+      <p class="p-dark text-justify">Ignore the warnings: Cloning into bare repository 'project_name.git'...
       warning: You appear to have cloned an empty repository.
       done.</p>
       <div class="well-wite well-sm custom-block ">
 	<p class="p-dark-code text-left custom">
-	  $ scp -r <sc>PROJECT</sc>.git user@xxxx.xx.xx.xx:/opt/git/
-	  <br>
-	  $ rm -r <sc>PROJECT PROJECT</sc>.git
-	  <br>
-	  $ git clone  <sc>PROJECT</sc>.git
+	  $ scp -r <sc>project_name</sc>.git user@xxxx.xx.xx.xx:/opt/git/
+	  </br>
+	  $ rm -r <sc>project_name project_name</sc>.git
+	  </br>
+	  $ git clone  <sc>project_name</sc>.git
 	</p>
       </div>
       
@@ -73,11 +83,11 @@
       <div class="well-wite well-sm custom-block ">
 	<p class="p-dark-code text-left custom">
 	  $ touch test.txt
-	  <br>
+	  </br>
 	  $ git add test.txt
-	  <br>
+	  </br>
 	  $ git commit -m "Testing git repo."
-	  <br>
+	  </br>
 	  $ git push origin master
 	</p>
       </div>
