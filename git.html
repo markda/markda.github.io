@@ -30,49 +30,58 @@
   <div class="container">
     <div class="well-lite well-sm">
       <p class="p-dark text-justify">
-	I am assuming the git is already installed on the server. But in case it isn't intalled on your local machine, that's the first thing we need to do:
-      </p>
+	Assuming that git is already installed on the server, but not on your local machine, the first thing we need to do is install git. The following instructions are for Debian-based distributions. For installing git on other Linux distributions, look <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.
+      </p><br>
       <div class="well-wite well-sm custom-block ">
        	<p class="p-dark-code text-justify custom">
 	  $ sudo apt-get install git
 	</p>
       </div>
+      <br>
       <p class="p-dark text-justify">
-	Create a wee repository on a server other than Github. First we need to make a directory on your local machine.
-      
-	Next we need to initialise it as a git repository.
+	The next thing we need to do is create a directory that will be used as your git repository. It doesn't matter a great deal where you create because later on you can copy it or clone it elsewhere.  Once it is created, we need to initialise it as a git repository:
       </p>
+      <br>
       <div class="well-wite well-sm custom-block ">
        	<p class="p-dark-code text-left custom">
 	  $ mkdir <sc>project_name</sc>
-	  </br>
+	  <br>
 	  $ cd <sc>project_name</sc>
-	  </br>
+	  <br>
 	  $ git init
 	</p>
       </div>
-      <p class="p-dark text-justify">Then we need to clone it into a bare repository.</p>
+      <br>
+      <p class="p-dark text-justify">Then we need to clone it into a bare repository otherwise you won't be able to push and pull updates from the server.</p>
+      <br>
       <div class="well-wite well-sm custom-block ">
 	<p class="p-dark-code text-left custom">
 	  $ cd ../
-	  </br>
+	  <br>
 	  $ git clone --bare <sc>project_name project_name</sc>.git
 	</p>
       </div>
-      <p class="p-dark text-justify">Ignore the warnings: Cloning into bare repository 'project_name.git'...
-      warning: You appear to have cloned an empty repository.
-      done.</p>
+      <br>
+      <p class="p-dark text-justify">At this point you will probably get the following warning: <em>You appear to have cloned an empty repository.</em> You can ignore it because currently it's true. Once we have the bare repository, which is just the name of your original directory with a <font class="code_text">.git</font> suffix, we need to copy it to the server. Here the address of the server is <font class="code_text">xxxx.xx.xx.xx</font>. This will obviously be something more reasonable for the actual address. You will need a user account and access rights to write to <font class="code_text">/opt/git</font>. Here the username is simply <font class="code_text">user</font>. You will be prompted to enter your password for accessing the server via ssh.</p>
+      <br>
       <div class="well-wite well-sm custom-block ">
 	<p class="p-dark-code text-left custom">
 	  $ scp -r <sc>project_name</sc>.git user@xxxx.xx.xx.xx:/opt/git/
-	  </br>
-	  $ rm -r <sc>project_name project_name</sc>.git
-	  </br>
-	  $ git clone  <sc>project_name</sc>.git
 	</p>
       </div>
-      
-      <p class="p-dark text-justify">warning: You appear to have cloned an empty repository.</p>
+      <br>
+      <p class="p-dark text-justify">At this point we're going to do something that might seem unnecessary, but it checks if other people who might be working in the same repository can clone it and work with it too:</p>
+      <br>
+      <div class="well-wite well-sm custom-block ">
+	<p class="p-dark-code text-left custom">
+      	  $ rm -r project_name project_name.git
+	  <br>
+	  $ git clone project_name.git
+	</p>
+      </div>
+      <br>
+      <p class="p-dark text-justify">Again, you'll likely get a warning about your vacuous repository: <em>You appear to have cloned an empty repository.</em> Ignore this. We'll add something to it now to check that it has been set up correctly:</p>
+      <br>
       <div class="well-wite well-sm custom-block ">
 	<p class="p-dark-code text-left custom">
 	  $ touch test.txt
@@ -84,6 +93,8 @@
 	  $ git push origin master
 	</p>
       </div>
+      <br>
+      <p class="p-dark text-justify">You should now have a repository up and running on your server that anyone with access rights can work on.
     </div>
   </div>
 
