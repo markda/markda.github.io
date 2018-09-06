@@ -1,5 +1,6 @@
 body{
     background: #383847;
+    padding-bottom: 50px;
 }
 
 body, input, select, textarea {
@@ -61,6 +62,7 @@ hr {
 }
 
 
+<<<<<<< HEAD
 .well-lite {
   min-height: 20px;
   padding: 19px;
@@ -109,4 +111,11 @@ hr {
 
 .code_text{
     font-family: "Courier New", sans-serif;
+
+.container-thin {
+  padding-right:315px;
+  padding-left: 315px;
+  margin-right: auto;
+  margin-left: auto;
+
 }
