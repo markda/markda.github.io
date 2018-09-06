@@ -432,6 +432,9 @@ footer nav {
 .radius {
   border-radius: .4rem; }
 
+.alignbottom{
+ vertical-align: baseline;}
+
 .alignright {
   float: right; }
 
@@ -1290,6 +1293,10 @@ footer p {
 
 header[role='banner'] img,
 footer img {
+  height: 4rem;
+  vertical-align: middle; }
+
+header img {
   height: 4rem;
   vertical-align: middle; }
 
@@ -3174,6 +3181,9 @@ Slides - Backgrounds <section class="bg-primary">
 
 .bg-white {
   background-color: #fff; }
+
+.bg-magenta {
+    background-color: #bc779b;}
 
 .bg-facebook {
   background-color: #3b5998; }
