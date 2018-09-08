@@ -224,20 +224,41 @@
 	</section>
 	<section class="aligncenter">
 	  Basically means using a chunker at sentence level.
-	</section class="aligncenter">
-	<p>Describe chunker task.</p>
-	<p>Basically a sequence labelling task.</p>
-	<ul>
-	  <li>
-	    
-	  </li>
-	  <li>
-	    
-	  </li>
-	  <li>
-	    
-	  </li>
-	</ul>
+	</section>
+
+
+	<section class="aligncenter">
+          <div class="wrap">
+            <div class="content-center">
+              <h2 class="text-landing">Chunking</h2>
+              <p><code>A sequence labelling task.</code></p>
+	      <p>Each word is labelled, <strong>B</strong>, <strong>I</strong>, or <strong>O</strong>.
+            </div>
+            <hr>
+            <ul class="flexblock">
+              <li>
+                <h2>B</h2>
+		<p >A token that begins a chunk.</p>
+		<p>Suffixed with chunk phrase type.</p>
+		<p>E.g. B-NP for a noun phrase.</p>
+              </li>
+	      <li>
+                <h2>I</h2>
+		<p >A token inside of a chunk.</p>
+		<p>Also suffixed with chunk phrase type.</p>
+		<p>E.g. I-VP for a verb phrase.</p>
+              </li>
+              
+              <li>
+		<h2>O</h2>
+		<p>Anything outside of a chunk.</p>
+		  
+              </li>
+            </ul>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+	
 	<section>
           <div class="wrap">
             <h3></h3>
