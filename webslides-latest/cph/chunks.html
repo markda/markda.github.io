@@ -78,10 +78,8 @@
               </li>
 	       <li>
                  <figure>
-		   <div class="img-wrapper">
-                     <img alt="Thumbnail " src="../CPH/wm-restrictions.png" style="object-fit: cover; height: 20rem"/>
-		     </div>
-                  <figcaption>
+                   <img alt="Thumbnail " src="../CPH/wm-restrictions.png" style="object-fit: cover; height: 20rem"/>
+                   <figcaption>
                     <h2>"Chunk-and-Pass"</h2>
                   </figcaption>
                 </figure>
@@ -108,8 +106,8 @@
 	</section>
 
 	
-	<section>
-          <div class="wrap">
+	<section class="noFadeIn" >
+          <div class="fadeNow">
             <h3></h3>
             <ul class="flexblock gallery">
               <li>
@@ -353,8 +351,107 @@
 	  
           <!-- .end .wrap -->
         </section>
+	
+	<section>
+	  <div class="wrap">
+	    <img src="../CPH/jakey-rule-search.png"/>
+	  </div>
+	</section>
 
+	<section>
+	  <div class="wrap aligncenter">
+	    <h1>Unsupervised Rule-Based Chunker :(</h1>
+	  </div>
+	</section>
+	
+	
+	<section class="bg-blue">
+	  
+	  <header>
+	    <h4>Evaluating unsupervised rule-based chunker.</h4>
+	    <hr/>
+	  </header>
+	  
+	    <pre>
+	    <h2 class="aligncenter"><sup>Invalid Chunks</sup>&frasl;<sub>(Invalid Chunks + Valid Chunks)</sub></h2>
+	  </pre>
+	  
+	</section>
+	
+	<section>
+          <div class="wrap">
+            <h2 class="aligncenter">Pruning Rule Sets</h2>
+            <ul class="flexblock plans blink">
+              <li>
+                <a href="#" title="">
+                  <h2>Run Unsupervised Rule-Based Chunker</h2>
+                  <div>
+                    <span class="price"><strong>ℝ</strong></span>
+                    <p>All rules that occur more than 10 times, ℝ.</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" title="">
+                  <h2>Remove Worst Performing Rule, r<sub>↓</sub></h2>
+                  <div>
+                    <span class="price">CONJ PRON NOUN</span>
+                    <p>Based on percentange of invalid chunks.</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" title="">
+                  <h2>Re-Run Unsupervised Rule-based chunker</h2>
+                  <div>
+                    <span class="price"><strong>ℝ</strong>-R<sub>↓</sub></span>
+                    <p>Run rule-based chunker again with ℝ-R<sub>↓</sub></p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- .end .wrap -->
+	</section>
 
+	<section>
+	  <div class="wrap aligncenter">
+	    <h1>Until threshold on error rate is met.</h1>
+	  </div>
+	</section>
+	
+	<section>
+	  
+	  <div class="wrap aligncenter" style="top-margin: 20em">
+	    <figure>
+	      <img style="max-width: 50em" src="../CPH/plot-placeholder.png"/>
+	      <figurecaption>
+		<p>Plot of Rule Sets: number versus threshold</p>
+	      </figurecaption>
+	    </figure>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="wrap aligncenter">
+	    <figure>
+            <div class="grid">
+              <div class="column">
+		<img style="max-width: 25em" src="../CPH/plot-placeholder.png"/>
+		<img style="max-width: 25em" src="../CPH/plot-placeholder.png"/>
+		<img style="max-width: 25em" src="../CPH/plot-placeholder.png"/>
+	      </div>
+	      <div class="column">
+		<img style="max-width: 25em" src="../CPH/plot-placeholder.png"/>
+		<img style="max-width: 25em" src="../CPH/plot-placeholder.png"/>
+	      </div>
+	    </div>
+	    
+	    <figurecaption>
+	      <p>Distribution of rule lengths</p>
+	  </div>
+	</section>
+	
 	<section>
 	  <header>
 	    <h3>System Flow</h3>
@@ -408,8 +505,11 @@
           </div>
           <!-- .end .wrap -->
         </section>
-
-
+	<section>
+	  <div class="wrap">
+	    <img src="../CPH/flow2.png"/>
+	  </div>
+	</section>
 	<section>
           <div class="wrap">
             <h3></h3>

@@ -528,7 +528,9 @@ https://github.com/daneden/animate.css */
 .fadeIn {
   -webkit-animation: fadeIn 1s;
           animation: fadeIn 1s; }
-
+.fadeNow {
+ -webkit-animation: fadeIn 0.001s;
+          animation: fadeIn 0.001s; }
 /*-- fadeInUp -- */
 @-webkit-keyframes fadeInUp {
   from {
@@ -1429,6 +1431,8 @@ section * {
   -webkit-animation: fadeIn .6s ease-in-out;
           animation: fadeIn .6s ease-in-out; }
 
+
+
 section .background,
 section .light,
 section .dark {
@@ -1505,6 +1509,11 @@ form[class*='bg-'] {
   margin: 0 auto;
   text-align: center; }
 
+.noFadeIn {
+  -webkit-animation: fadeIn .0006s ease-in-out;
+          animation: fadeIn .0006s ease-in-out; }
+
+ 
 @media (min-width: 768px) {
   [class*='content-'] {
     width: 50%; }
