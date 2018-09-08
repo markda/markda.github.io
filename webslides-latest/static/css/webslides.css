@@ -525,12 +525,25 @@ https://github.com/daneden/animate.css */
   to {
     opacity: 1; } }
 
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0.4; } }
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0.4; } }
+
 .fadeIn {
-  -webkit-animation: fadeIn 1s;
-          animation: fadeIn 1s; }
-.fadeNow {
- -webkit-animation: fadeIn 0.001s;
-          animation: fadeIn 0.001s; }
+    
+    -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s; }
+
+.fadeOut {
+    -webkit-animation: fadeOut 20.001s;
+     animation: fadeOut 20.001s; }
 /*-- fadeInUp -- */
 @-webkit-keyframes fadeInUp {
   from {
