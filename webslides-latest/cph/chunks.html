@@ -171,9 +171,68 @@
           </div>
           <!-- .end .wrap -->
 	</section>
+
+	<section>
+	  <h2>Slide about dependency parsing.</h2>
+	</section>
+
+	<section>
+	  <h2>Slide about consituency parsing </h2>
+	</section>
+
+	<section>
+	  <h2>Slide about shift-reduce algorithms</h2>	  
+	</section>
+
+	<section>
+	  <h2>Slide about graph-based algorithms</h2>
+	</section>
+
+	<section class="bg-magenta-lite">
+          <div class="wrap">
+            <h2 class="aligncenter">Parser Speeds</h2>
+            <p class="aligncenter">Small sample of dependency parsers.</p>
+	    <p class="aligncenter" style="margin-top: -2em; font-size: 0.75em">
+	      Note: add performance data?
+	    </p>
+            <table>
+              <thead>
+               <tr>
+                <th style="width: 30em">Parser</th>
+                <th>Algorithm Type</th>
+                <th>Speed (SPS)</th>
+               </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>One</td>
+                  <td>Graph</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>Two</td>
+                  <td>Shift</td>
+                  <td>1000</td>
+                </tr>
+                <tr>
+                  <td>Three</td>
+                  <td>Shift</td>
+                  <td>200</td>
+                </tr>
+                <tr>
+                  <td>Four</td>
+                  <td>Graph</td>
+                  <td>24</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
 	
 	<section>
-          <div class="wrap">
+	  <div class="wrap">
             <h3></h3>
             <ul class="flexblock gallery">
               <li>
@@ -308,12 +367,13 @@
           <div class="wrap size-50">
             <h3>System Details</h3>
             <hr>
+	    <p class="aligncenter" style="margin-top: -2em; font-size: 0.75em">
+	      Note: change to two columns?
+	    </p>
             <div class="toc">
               <ol>
                 <li>
-                  <a href="#" title="">
-                    <span class="chapter">Generating Gold Data</span>
-                  </a>
+                  <span class="chapter">Generating Gold Data</span>
 		  <ol>
 		    <li>
 		      Automatically Extracting Rules
@@ -323,21 +383,19 @@
 		    </li>
 		  </ol>
                 </li>
-                <li><a href="#" title="">
-		    <span class="chapter">"Chunk-and-Pass" Parser</span>
-		    </a>
-                
-                <ol>
-		  <li>
-		    Chunker
-		  </li>
-		  <li>
-		    Inside Parser
-		  </li>
-		  <li>
-		    Outside Parser
-		  </li>
-		</ol>
+                <li>
+		  <span class="chapter">"Chunk-and-Pass" Parser</span>
+		  <ol>
+		    <li>
+		      Chunker
+		    </li>
+		    <li>
+		      Inside Parser
+		    </li>
+		    <li>
+		      Outside Parser
+		    </li>
+		  </ol>
 		</li>
               </ol>
             </div>
@@ -346,6 +404,14 @@
 	  
           <!-- .end .wrap -->
         </section>
+
+	<section>
+	  <h2>Chunk definition:</h2>
+	  <hr/>
+	  <pre>
+	    <h4>Any grammatically related, linear combination of tokens with a length greater than 2 and with only one level of dependency.</h4>
+	  </pre>
+	</section>
 	
 	<section>
 	  <div class="wrap">
@@ -353,6 +419,10 @@
 	  </div>
 	</section>
 
+	<section>
+	  <h2>Diagram of a bag of rules?</h2>
+	</section>
+	
 	<section>
 	  <div class="wrap aligncenter">
 	    <h1>Unsupervised Rule-Based Chunker :(</h1>
@@ -511,6 +581,24 @@
 	    <img src="../CPH/flow2.png"/>
 	  </div>
 	</section>
+
+	<section>
+	  <h2>Inside parser details.</h2>
+	</section>
+	
+	<section>
+	  <h2>Outside parser details.</h2>
+	</section>
+
+	<section>
+	  <h2>Chunker details.</h2>
+	  <h2>Chunk embedding details.</h2>
+	</section>
+
+	<section>
+	  <h2>Collator necessary?</h2>
+	</section>
+	
 	<section>
           <div class="wrap">
             <h3></h3>
@@ -555,7 +643,66 @@
           </div>
           <!-- .end .wrap -->
 	</section>
+
+	<section>
+	  <h2>F1 and Compression against CER-threshold.</h2>
+	</section>
+
+	<section>
+	  <h2>Full System Performance of Unsupervised Chunker.</h2>
+	</section>
+
+	<section>
+	  <h2>Full System Performance of Supervised Chunker.</h2>
+	</section>
+
+	<section>
+	  <h2>Inside, Outside, Full System Performance with NCRF++.</h2>
+	</section>
+
+	<section>
+	  <h2>Performance Against Compression Rate.</h2>
+	</section>
 	
+	<section>
+	  <h2>Preliminary Speeds (TPS/SPS) against compression.</h2>
+	</section>
+
+	<section>
+	  <h2>Performance Against Compression Rate.</h2>
+	</section>
+
+	<section>
+	  <h2>Performance and Speed against Compression Rate.</h2>
+	</section>
+
+	<section class="bg-magenta">
+	  <h2>Concluding Remarks.</h2>
+	</section>
+
+	<section>
+	  <ul class="flexblock">
+	    <li>
+	      <h2>Shown efficacy of approach.</h2>
+	    </li>
+	    <li>
+	      <h2>Experiment with different embedding techniques.</h2>
+	    
+	      Average of chunk components, weighted average, combine lexical embedding and POS.
+	    
+	    </li>
+	    
+	    <li>
+	      <h2>Increase outside parser performance: explicitly pass more info about chunks?</h2>
+	    </li>
+	    <li>
+	      <h2>Focus on other languages.</h2>
+	    </li>
+	  </ul>
+	</section>
+	<section class="aligncenter">
+	  <h1>Thanks</h1>
+	</section>
       </article>
     </main>
     <!--main-->
