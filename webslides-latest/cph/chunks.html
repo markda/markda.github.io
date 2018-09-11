@@ -89,7 +89,7 @@
                 <figure class="fadeOut">
                   <img alt="Thumbnail " src="../CPH/full-system.png" style="object-fit: cover; height: 20rem">
                   <figcaption>
-                    <h2>System Details</h2>
+                    <h2>Implementation</h2>
                   </figcaption>
                 </figure>
               </li>
@@ -173,22 +173,42 @@
 	</section>
 
 	<section>
-	  <h2>Slide about dependency parsing.</h2>
+	  <header>
+	    <h2 style="margin-top: 3em">Syntactic analysis.</h2>
+	  </header>
+	  <h4 class="aligncenter">How do the words in a sentence relate to one another grammatically?</h4>
+	  <img style="max-width: 45em" class="aligncenter" src="../CPH/cat-rat.png"/>
+	</section>
+	
+
+	<section>
+	  <h2>Consituency parsing </h2>
+	  <img style="max-width: 55em" class="aligncenter" src="../CPH/constituency.png"/>	  
 	</section>
 
 	<section>
-	  <h2>Slide about consituency parsing </h2>
+	  <h2>Dependency parsing.</h2>
+	  <img style="max-width: 45em" class="aligncenter" src="../CPH/depend.png"/>
 	</section>
 
 	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
 	  <h2>Slide about shift-reduce algorithms</h2>	  
 	</section>
 
 	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
 	  <h2>Slide about graph-based algorithms</h2>
 	</section>
 
 	<section class="bg-magenta-lite">
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
           <div class="wrap">
             <h2 class="aligncenter">Parser Speeds</h2>
             <p class="aligncenter">Small sample of dependency parsers.</p>
@@ -259,7 +279,7 @@
                 <figure style="opacity:0.4">
                   <img alt="Thumbnail " src="../CPH/full-system.png" style="object-fit: cover; height: 20rem">
                   <figcaption>
-                    <h2>System Details</h2>
+                    <h2>Implementation</h2>
                   </figcaption>
                 </figure>
               </li>
@@ -276,13 +296,14 @@
           <!-- .end .wrap -->
 	</section>
 	<section class="aligncenter">
-	  Working memory restrictions (10 items).
-	</section>
-	<section class="aligncenter">
-	  Need something to show the abstract representation for us.
-	</section>
-	<section class="aligncenter">
-	  Basically means using a chunker at sentence level.
+	  <header>
+	    Work In Progress
+	  </header>
+	  <h3>Working memory restrictions (10 items).</h3>
+	
+	  <h3>Need to cast linguistic input into a hierarchical abstract representation.</h3>
+
+	  <h3>Basically means using a chunker at sentence level.</h3>
 	</section>
 
 
@@ -346,7 +367,7 @@
                 <figure>
                   <img alt="Thumbnail " src="../CPH/full-system.png" style="object-fit: cover; height: 20rem">
                   <figcaption>
-                    <h2>System Details</h2>
+                    <h2>Implementation</h2>
                   </figcaption>
                 </figure>
               </li>
@@ -365,40 +386,43 @@
 	
 	<section>
           <div class="wrap size-50">
-            <h3>System Details</h3>
+            <h3 class="aligncenter">Implementation</h3>
             <hr>
-	    <p class="aligncenter" style="margin-top: -2em; font-size: 0.75em">
-	      Note: change to two columns?
-	    </p>
             <div class="toc">
-              <ol>
-                <li>
-                  <span class="chapter">Generating Gold Data</span>
-		  <ol>
-		    <li>
-		      Automatically Extracting Rules
-		    </li>
-		    <li>
-		      Pruning Rule Sets
-		    </li>
-		  </ol>
-                </li>
-                <li>
-		  <span class="chapter">"Chunk-and-Pass" Parser</span>
-		  <ol>
-		    <li>
-		      Chunker
-		    </li>
-		    <li>
-		      Inside Parser
-		    </li>
-		    <li>
-		      Outside Parser
-		    </li>
-		  </ol>
-		</li>
-              </ol>
-            </div>
+	      <ol>
+		<div class="grid">
+		  <div class="column">
+                    <li>
+                      <span class="chapter">1. Generating Gold Data</span>
+		      <ol>
+			<li>
+			Automatically Extracting Rules
+		      </li>
+		      <li>
+			Pruning Rule Sets
+		      </li>
+		    </ol>
+                  </li>
+		</div>
+		<div class="column">
+                  <li>
+		    <span class="chapter">2. "Chunk-and-Pass" Parser</span>
+		    <ol>
+		      <li>
+			Chunker
+		      </li>
+		      <li>
+			Inside Parser
+		      </li>
+		      <li>
+			Outside Parser
+		      </li>
+		    </ol>
+		  </li>
+		</div>
+		</div>
+	      </ol>
+	    </div>
             <!-- end .toc -->
           </div>
 	  
@@ -406,7 +430,7 @@
         </section>
 
 	<section>
-	  <h2>Chunk definition:</h2>
+	  <h2>Chunk definition in this context:</h2>
 	  <hr/>
 	  <pre>
 	    <h4>Any grammatically related, linear combination of tokens with a length greater than 2 and with only one level of dependency.</h4>
@@ -414,18 +438,81 @@
 	</section>
 	
 	<section>
+	  <div class="wrap size-50">
+	    <h3 align="right">
+	      <u>Extracting rules.</u>
+	    </h3>
+	  </div>
 	  <div class="wrap">
-	    <img src="../CPH/jakey-rule-search.png"/>
+	    <img style="max-width: 62em"  class="aligncenter" src="../CPH/jakey-rule-search.png"/>
 	  </div>
 	</section>
 
 	<section>
-	  <h2>Diagram of a bag of rules?</h2>
+	  	  <div class="wrap size-50">
+	    <h3 align="right">
+	      <u>Extracting rules.</u>
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <img style="max-width: 62em"  class="aligncenter" src="../CPH/jakey-rule-search-2.png"/>
+	  </div>
 	</section>
+
+	<section>
+	  	  <div class="wrap size-50">
+	    <h3 align="right">
+	      <u>Extracting rules.</u>
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <img style="max-width: 62em"  class="aligncenter" src="../CPH/jakey-rule-search-3.png"/>
+	  </div>
+	</section>
+
+	<section>
+	  	  <div class="wrap size-50">
+	    <h3 align="right">
+	      <u>Extracting rules.</u>
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <img style="max-width: 62em"  class="aligncenter" src="../CPH/jakey-rule-search-4.png"/>
+	  </div>
+	</section>
+	   
+	<section>
+	  	  <div class="wrap size-50">
+	    <h3 align="right">
+	      <u>Extracting rules.</u>
+	    </h3>
+	  </div>
+	  <img style="max-width: 50em" class="aligncenter" src="../CPH/bag-of-rules.png"/>
+	</section>
+	
+	<section class="frame bg-black-blue">
+
+	  <div class="wrap">
+	    <h3 class="aligncenter" style="margin-bottom: 3em">Extract 2615 unique rules.</h3>
+	    <div class="cta">
+		
+              <div class="number" style="border-right: 1px solid white">
+		<h3>512 occur more than 5 times.</h3>      
+              </div>
+              <!--end .number -->
+	      <div class="benefit">
+		<h2>1.34x10<sup>134</sup> different rule sets.</h2>
+              </div>
+              <!--end .benefit -->
+            </div>
+            <!--end .cta -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
 	
 	<section>
 	  <div class="wrap aligncenter">
-	    <h1>Unsupervised Rule-Based Chunker :(</h1>
+	    <h1>Unsupervised Rule-Based Chunker</h1>
 	  </div>
 	</section>
 	
@@ -434,11 +521,11 @@
 	  <div class="wrap">
 	  <h3 align="center">Evaluating unsupervised rule-based chunker.</h3>
 	  <hr style="background-color: #95abd0; border-color: #95abd0">
-	    <ul class="flexblock plans blink">
+	    <ul class="flexblock plans blink ">
 	      <li>
 		<h2 style="background: #c0c9d8; color: #192437">Chunk Error Rate (CER)</h2>
 		<pre>
-		  <p style="font-size: 2.6em">CER = <sup>Invalid Chunks</sup>&frasl;<sub>(Invalid Chunks + Valid Chunks)</sub></p>
+		  <p style="font-size: 2.6em" class="aligncenter">CER = <sup>Invalid Chunks</sup>&frasl;<sub>(Invalid Chunks + Valid Chunks)</sub></p>
 		</pre>
 	    </li>
 	    </ul>
@@ -454,7 +541,7 @@
                   <h2 style="background: #2e3849">Run Unsupervised Rule-Based Chunker</h2>
                   <div>
                     <span class="price"><strong>ℝ</strong></span>
-                    <p>All rules that occur more than 10 times, ℝ.</p>
+                    <p>All rules that occur more than 5 times, ℝ.</p>
 		    </br>
                   </div>
                 </a>
@@ -466,7 +553,7 @@
                     <span class="price">R<sub>↓</sub></span>
 		    <p style="font-size: 1em; margin-top: -1em">e.g. (CONJ PRON NOUN)</p>
                     <p style="margin-top: -2em; margin-bottom: 1em">
-		      Based on percentange of invalid chunks.</p>
+		      Based on each rule's CER.</p>
                   </div>
                 </a>
               </li>
@@ -487,7 +574,7 @@
 
 	<section>
 	  <div class="wrap aligncenter">
-	    <h1>Until threshold on error rate is met.</h1>
+	    <h1>Until a threshold on the global chunk error rate is met.</h1>
 	  </div>
 	</section>
 	
@@ -497,7 +584,7 @@
 	    <figure>
 	      <img style="max-width: 50em" src="../CPH/ruleNo.png"/>
 	      <figurecaption>
-		<p>Plot of Rule Sets: number versus threshold</p>
+		<p></p>
 	      </figurecaption>
 	    </figure>
 	  </div>
@@ -609,20 +696,32 @@
 	</section>
 
 	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
+	  <h2>Chunker details.</h2>
+	  <h2>Chunk embedding details.</h2>
+	</section>
+	
+	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
 	  <h2>Inside parser details.</h2>
 	</section>
 	
 	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
 	  <h2>Outside parser details.</h2>
 	</section>
 
 	<section>
-	  <h2>Chunker details.</h2>
-	  <h2>Chunk embedding details.</h2>
-	</section>
-
-	<section>
-	  <h2>Collator necessary?</h2>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
+	  <h2>Collate output from inside and outside parser.</h2>
 	</section>
 	
 	<section>
@@ -653,7 +752,7 @@
                 <figure style="opacity:0.4">
                   <img alt="Thumbnail " src="../CPH/full-system.png" style="object-fit: cover; height: 20rem">
                   <figcaption>
-                    <h2>System Details</h2>
+                    <h2>Implementation</h2>
                   </figcaption>
                 </figure>
               </li>
@@ -671,10 +770,16 @@
 	</section>
 
 	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
 	  <h1> TABLE OF RESULTS </h1>
 	</section>
 
 	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
 	  <h1> DEFINE COMPRESSION </h1>
 	</section>
 	<section>
@@ -683,39 +788,42 @@
 	</section>
 	<section>
 	  <h2>NCRF++ Chunker Performance</h2>
-	  <img src="../CPH/chunkingPerformance.png"/>
+	  <img class="aligncenter" src="../CPH/chunkingPerformance.png"/>
 	</section>
 
 	<section>
 	  <h2>Full System Performance of Unsupervised Chunker.</h2>
-	  <img src="../CPH/full-unsuper.png"/>
+	  <img class="aligncenter" src="../CPH/full-unsuper.png"/>
 	</section>
 
 	<section>
 	  <h2>Full System Performance of Supervised Chunker.</h2>
-	  <img src="../CPH/full-only.png"/>
+	  <img class="aligncenter" src="../CPH/full-only.png"/>
 	</section>
 	
 	<section>
 	  <h2>Inside, Outside, and Full System Performance with NCRF++.</h2>
-	  <img src="../CPH/insideOutside.png"/>
+	  <img class="aligncenter" src="../CPH/insideOutside.png"/>
 	</section>
 
 	<section>
 	  <h2>Performance And Compression Rate.</h2>
-	  <img src="../CPH/las-comp.png"/>
+	  <img class="aligncenter" src="../CPH/las-comp.png"/>
 	</section>
 	
 	<section>
-	  <h2>Preliminary Speeds (TPS/SPS) against compression.</h2>
+	  <h2>Preliminary speeds (TPS/SPS) and compression.</h2>
+	  <img class="aligncenter" src="../CPH/speed-comp.png"/>
 	</section>
 
 	<section>
-	  <h2>Performance Against Compression Rate.</h2>
+	  <h2>Preliminary speeds (TPS/SPS) against compression.</h2>
+	  <img class="aligncenter" src="../CPH/v-contra-comp.png"/>
 	</section>
 
 	<section>
-	  <h2>Performance and Speed against Compression Rate.</h2>
+	  <h2>Performance against speed.</h2>
+	  <img class="aligncenter" src="../CPH/as-contra-v.png"/>
 	</section>
 
 	<section class="bg-magenta">
