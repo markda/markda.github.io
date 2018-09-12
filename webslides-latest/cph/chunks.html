@@ -511,6 +511,9 @@
         </section>
 	
 	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
 	  <div class="wrap aligncenter">
 	    <h1>Unsupervised Rule-Based Chunker</h1>
 	  </div>
@@ -695,35 +698,127 @@
 	  </div>
 	</section>
 
-	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-	  <h2>Chunker details.</h2>
-	  <h2>Chunk embedding details.</h2>
-	</section>
-	
-	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-	  <h2>Inside parser details.</h2>
-	</section>
-	
-	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-	  <h2>Outside parser details.</h2>
-	</section>
+
+	<section class="frame">
+
+	  <div class="wrap">
+	    <h3 class="aligncenter" style="margin-bottom: 3em">Chunker</h3>
+	    <div class="grid vertical-align">
+              <div class="column" style="border-right: 1px solid black">
+		<h4>Encode UD data as <strong>BIO</strong> format using a rule set</h4>
+	      </div>
+	      <div class="column" style="border-right: 1px solid black">
+		<h4>BIO UD data feed to <strong>NCRF++</strong> implemented neural network.</h4>
+	      </div>
+	      <div class="column" style="border-right: 1px solid black">
+		<h4>Tokens labelled as part of a chunk sent to the <strong>inside</strong> parser.</h4>
+	      </div>
+	      <div class="column">
+		<h4>The rest is sent to the <strong>outside</strong> parser with chunks instances replacing their constituent tokens.</h4>
+	      </div>
+            </div>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
 
 	<section>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap">
+            <div class="grid vertical-align">
+              <div class="column">
+                <h3><strong>Chunker Implementation</strong></h3>
+                <p>We use the nueral sequence toolkit NCRF++ developed by Yang and Zhang (2018).</p>
+                
+		<ul>
+		  <li><p class="text-intro">Features: <strong>POS tags</strong></p></li>
+		    <li><p class="text-intro">Character embedding dimensions: <strong>30</strong></p></li>
+		    <li><p class="text-intro">Word embedding dimensions: <strong>50</strong></p></li>
+		    <li style="margin-left: 2em">
+		      GloVe pretrained embeddings
+		    </li>
+		  </ul>
+		  <hr/>
+		  <ul>
+		    <li><p class="text-intro">Character layer: <strong>CNN</strong> (4 hidden layers, dim=50)</p></li>
+		    <li><p class="text-intro">Word layer: <strong>BiLSTM</strong> (1 hidden layer, dim=200)</p></li>
+		    <li><p class="text-intro">Inference later: <strong>CRF</strong></p></li>
+		  </ul>
+	      </div>
+              <!-- .end .column -->
+              <div class="column">
+                <pre>
+		  <figure>
+		    <img src="../CPH/ncrf.png"  style="margin-left: 5.5em; max-width: 60rem"/>
+		    <figurecaption class="aligncenter">
+		      <h6>From Yang and Zhang (2018).</h6>
+		    </figurecaption>
+		  </figure>
+		</pre>
+              </div>
+              <!-- .end .column -->
+            </div>
+            <!-- .end .grid -->
+            <hr>
+
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+	
+
+	
+	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
+
+	  <div class="wrap">
+	    <div class="grid">
+	      <div class="column">
+		<h2>Inside parser details.</h2>
+		<ul>
+		  <li><p class="text-intro">MaltParser - Arc Eager</p></li>
+		  <li><p class="text-intro">Stack/Buffer features. </p> (what are they?)</li>
+		</ul>
+	      </div>
+	      <div class="column">
+		<h2>Outside parser details.</h2>
+		<ul>
+		  <li><p class="text-intro">NN Stack-based Arc Standard</p></li>
+		  <li><p class="text-intro"></p></li>
+		  <li><p class="text-intro">Perceptron</p></li>
+		  <li style="margin-left: 2em">
+		    200 units.
+		  </li>
+
+		  <li style="margin-left: 2em">
+		    1 layer.
+		  </li>
+		  <li style="margin-left: 2em">
+		    Stack/Buffer features.
+		  </li>
+		  <li><p class="text-intro">Input: </p></li>
+		  <li style="margin-left: 2em">
+		      chunk embeddings - word embedding of chunk's head (GloVe 100dim).
+		  </li>
+		  <li style="margin-left: 2em">
+		    POS, CPOS, UD-features, and relations.
+		  </li>
+		  
+		</ul>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+	
+	<!--<section>
 	  <header class="aligncenter">
 	    Work In Progress
 	  </header>
 	  <h2>Collate output from inside and outside parser.</h2>
 	</section>
-	
+	-->
 	<section>
           <div class="wrap">
             <h3></h3>
@@ -780,7 +875,10 @@
 	  <header class="aligncenter">
 	    Work In Progress
 	  </header>
-	  <h1> DEFINE COMPRESSION </h1>
+	  <h2>Chunk compression definition </h2>
+	  <pre>
+	    <p style="font-size: 2.6em" class="aligncenter">compression = <sup>#tokens</sup>&frasl;<sub>(#chunks + #tokens<sub>Out</sub>)</sub></p>
+	  </pre>
 	</section>
 	<section>
 	  <h2>NCRF++ Chunker Performance with different features</h2>
