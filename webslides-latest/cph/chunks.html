@@ -141,7 +141,7 @@
             <hr>
             <div class="grid">
               <div class="column">
-                <h4>State-of-the-art dependency parsers can only parse about 100 sentences per second.</h4>
+                <h4>State-of-the-art dependency parsers can only parse about 400 sentences per second (Dozat & Manning, 2017).</h4>
               </div>
               <div class="column">
                 <h4> For large-scale analyses, this is <strong>cost-prohibitive</strong>.</h4>
@@ -165,8 +165,8 @@
 	<section>
 	  <div class="wrap">
             <a href="https://clipartxtras.com/download/023c0ddf01a6abaacebf60aee075671f6d278907.html"><img class="alignright size-30" src="../CPH/EarthSpin.gif"></a>
-            <p class="text-intro">To parse the entirety of this document, it would take <strong>9x10<sup>9</sup> seconds</strong>.</p>
-            <h1>Or <u>10.4</u> days.</h1>
+            <p class="text-intro">To parse the entirety of this corpus, it would take <strong>2.25x10<sup>5</sup> seconds</strong>.</p>
+            <h1>Or <u>2.6</u> days.</h1>
 
           </div>
           <!-- .end .wrap -->
@@ -179,8 +179,8 @@
 	  <h4 class="aligncenter">How do the words in a sentence relate to one another grammatically?</h4>
 	  <img style="max-width: 45em" class="aligncenter" src="../CPH/cat-rat.png"/>
 	</section>
-	
 
+	
 	<section>
 	  <h2>Consituency parsing </h2>
 	  <img style="max-width: 55em" class="aligncenter" src="../CPH/constituency.png"/>	  
@@ -191,18 +191,38 @@
 	  <img style="max-width: 45em" class="aligncenter" src="../CPH/depend.png"/>
 	</section>
 
-	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-	  <h2>Slide about shift-reduce algorithms</h2>	  
+	<section  class="aligncenter">
+	  <h1 style="margin-bottom: 2em"><u>Dependency Parsing Methods</u></h1>
+	  <div class="cta">
+	    
+            <div class="number" style="border-right: 1px solid white">
+	      <h2>Shift-reduce algorithms</h2>
+
+            </div>
+            <!--end .number -->
+	    <div class="benefit">
+	      <h2>Graph-based algorithms</h2>
+            </div>
+            <!--end .benefit -->
+	  </div>
+
+	</section>
+	
+
+	<section class="aligncenter">
+	  <h2><u>Shift-reduce</u></h2>
+	  <img class="aligncenter"style="max-width: 60em" src="../CPH/shift-reduce-2.png">
 	</section>
 
-	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-	  <h2>Slide about graph-based algorithms</h2>
+	<section class="aligncenter">
+	  <h2><u>Graph-based</u></h2>
+	  <ul class="flexblock gallery">
+              <li style="background: transparent">
+		<img class="aligncenter"style="max-width: 25em" src="../CPH/graph-based-1.png">
+	      </li>
+	      <li style="background: transparent">
+		<img class="aligncenter"style="max-width: 25em" src="../CPH/graph-based-2.png">
+	      </li>
 	</section>
 
 	<section class="bg-magenta-lite">
@@ -213,13 +233,12 @@
             <h2 class="aligncenter">Parser Speeds</h2>
             <p class="aligncenter">Small sample of dependency parsers.</p>
 	    <p class="aligncenter" style="margin-top: -2em; font-size: 0.75em">
-	      Note: add performance data?
 	    </p>
             <table>
               <thead>
                <tr>
                 <th style="width: 30em">Parser</th>
-                <th>Algorithm Type</th>
+                <th>UAS</th>
                 <th>Speed (SPS)</th>
                </tr>
               </thead>
@@ -385,7 +404,7 @@
 	</section>
 	
 	<section>
-          <div class="wrap size-50">
+          <div class="wrap size-60">
             <h3 class="aligncenter">Implementation</h3>
             <hr>
             <div class="toc">
@@ -393,29 +412,31 @@
 		<div class="grid">
 		  <div class="column">
                     <li>
-                      <span class="chapter">1. Generating Gold Data</span>
+                      <span class="chapter"><p style="font-size: 1.7em">1. Generating Gold Data</p></span>
 		      <ol>
-			<li>
-			Automatically Extracting Rules
-		      </li>
-		      <li>
-			Pruning Rule Sets
-		      </li>
-		    </ol>
-                  </li>
-		</div>
-		<div class="column">
+		      	<li style="margin-left:1em">
+			  <p style="font-size: 1.5em">Automatically Extracting Rules</p>
+			</li>
+		      	<li style="margin-left:1em">
+			  <p style="font-size: 1.5em">Pruning Rule Sets</p>
+			</li>
+		      </ol>
+                    </li>
+		  </div>
+
+		  <div class="column" style="margin-left: 10em">
+		      
                   <li>
-		    <span class="chapter">2. "Chunk-and-Pass" Parser</span>
+		    <span class="chapter"><p style="font-size: 1.7em">2. "Chunk-and-Pass" Parser</p></span>
 		    <ol>
-		      <li>
-			Chunker
+		      <li style="margin-left:1em">
+			<p style="font-size: 1.5em">Chunker</p>
 		      </li>
-		      <li>
-			Inside Parser
+		      <li style="margin-left:1em">
+			<p style="font-size: 1.5em">Inside Parser</p>
 		      </li>
-		      <li>
-			Outside Parser
+		      <li style="margin-left:1em">
+			<p style="font-size: 1.5em">Outside Parser</p>
 		      </li>
 		    </ol>
 		  </li>
@@ -490,8 +511,8 @@
 	  <img style="max-width: 50em" class="aligncenter" src="../CPH/bag-of-rules.png"/>
 	</section>
 	
-	<section class="frame bg-black-blue">
-
+	<section class="bg-black-blue">
+	  
 	  <div class="wrap">
 	    <h3 class="aligncenter" style="margin-bottom: 3em">Extract 2615 unique rules.</h3>
 	    <div class="cta">
@@ -510,14 +531,6 @@
           <!-- .end .wrap -->
         </section>
 	
-	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-	  <div class="wrap aligncenter">
-	    <h1>Unsupervised Rule-Based Chunker</h1>
-	  </div>
-	</section>
 	
 	
 	<section class="bg-black-blue">
@@ -573,11 +586,9 @@
             </ul>
           </div>
           <!-- .end .wrap -->
-	</section>
-
-	<section>
+	  
 	  <div class="wrap aligncenter">
-	    <h1>Until a threshold on the global chunk error rate is met.</h1>
+	    <h3>Until a threshold on the global chunk error rate is met.</h3>
 	  </div>
 	</section>
 	
@@ -650,10 +661,10 @@
                 <span>
                     <img src="../CPH/saw.png" style="top-margrin: -2em; height: 0.9em"/>
                 </span>
-                <h2>1. Chunker</h2>
-                <p>I. Supervised chunker classifies each word (BIO notation).</p>
-		<p>II. Sends chunks to the <i>Inside</i> parser.</p>
-		<p>III. Sends chunk embeddings to the <i>Outside</i> parser.  
+                <p style="font-size: 1.9em"><strong>1. Chunker</strong></p>
+                <p style="font-size: 1.5em">I. Supervised chunker classifies each word (IOB notation).</p>
+		<p style="font-size: 1.5em">II. Sends chunks to the <i>Inside</i> parser.</p>
+		<p style="font-size: 1.5em">III. Sends chunk embeddings to the <i>Outside</i> parser.  
               </li>
               <li>
                 <div class="process step-2"></div>
@@ -662,9 +673,9 @@
                     <use xlink:href="#fa-leaf"></use>
                   </svg>
                 </span>
-                <h2>2. Inside Parser</h2>
-                <p>Faster parser for simpler, shorter relations.</p>
-		<p>Parsers the components of chunks.</p>
+		<p style="font-size: 1.9em"><strong>2. Inside Parser</strong></p>
+                <p style="font-size: 1.5em">Faster parser for simpler, shorter relations.</p>
+		<p style="font-size: 1.5em">Parsers the components of chunks.</p>
               </li>
               <li>
                 <div class="process step-3"></div>
@@ -673,9 +684,9 @@
                     <use xlink:href="#fa-tree"></use>
                   </svg>
                 </span>
-                <h2>3. Outside Parser</h2>
-                <p>State-of-the-art parsers that we want to accelerate. </p>
-		<p>Parses the abstract representation of the input.</p>
+                <p style="font-size: 1.9em"><strong>3. Outside Parser</strong></p>
+                <p style="font-size: 1.5em">State-of-the-art parsers that we want to accelerate. </p>
+		<p style="font-size: 1.5em">Parses the abstract representation of the input.</p>
               </li>
               <li>
                 <div class="process step-4"></div>
@@ -684,9 +695,9 @@
                     <use xlink:href="#fa-check-circle"></use>
                   </svg>
                 </span>
-                <h2>4. Collator</h2>
-		<p>Need to collate the output from the two parsers.</p>
-		<p>Results in a full dependency tree. </p>
+                <p style="font-size: 1.9em"><strong>4. Collator</strong></p>
+		<p style="font-size: 1.5em">Need to collate the output from the two parsers.</p>
+		<p style="font-size: 1.5em">Results in a full dependency tree. </p>
               </li>
             </ul>
           </div>
@@ -698,29 +709,7 @@
 	  </div>
 	</section>
 
-
-	<section class="frame">
-
-	  <div class="wrap">
-	    <h3 class="aligncenter" style="margin-bottom: 3em">Chunker</h3>
-	    <div class="grid vertical-align">
-              <div class="column" style="border-right: 1px solid black">
-		<h4>Encode UD data as <strong>BIO</strong> format using a rule set</h4>
-	      </div>
-	      <div class="column" style="border-right: 1px solid black">
-		<h4>BIO UD data feed to <strong>NCRF++</strong> implemented neural network.</h4>
-	      </div>
-	      <div class="column" style="border-right: 1px solid black">
-		<h4>Tokens labelled as part of a chunk sent to the <strong>inside</strong> parser.</h4>
-	      </div>
-	      <div class="column">
-		<h4>The rest is sent to the <strong>outside</strong> parser with chunks instances replacing their constituent tokens.</h4>
-	      </div>
-            </div>
-          </div>
-          <!-- .end .wrap -->
-        </section>
-
+	
 
 	<section>
           <!--.wrap = container (width: 90%) -->
@@ -728,7 +717,7 @@
             <div class="grid vertical-align">
               <div class="column">
                 <h3><strong>Chunker Implementation</strong></h3>
-                <p>We use the nueral sequence toolkit NCRF++ developed by Yang and Zhang (2018).</p>
+                <p>We use the neural sequence toolkit NCRF++ developed by Yang and Zhang (2018).</p>
                 
 		<ul>
 		  <li><p class="text-intro">Features: <strong>POS tags</strong></p></li>
@@ -765,9 +754,34 @@
           <!-- .end .wrap -->
         </section>
 
-	
+
+	<section class="frame">
+
+	  <div class="wrap">
+	    <h3 class="aligncenter" style="margin-bottom: 3em"></h3>
+	    <div class="grid vertical-align">
+              <div class="column" style="border-right: 1px solid black">
+		<h4>Encode UD data as <strong>IOB</strong> format using a rule set</h4>
+	      </div>
+	      <div class="column" style="border-right: 1px solid black">
+		<h4>IOB UD data fed to <strong>NCRF++</strong> implemented neural network.</h4>
+	      </div>
+	      <div class="column" style="border-right: 1px solid black">
+		<h4>Tokens labelled as part of a chunk sent to the <strong>inside</strong> parser.</h4>
+	      </div>
+	      <div class="column">
+		<h4>The rest is sent to the <strong>outside</strong> parser with chunks instances replacing their constituent tokens.</h4>
+	      </div>
+            </div>
+          </div>
+          <!-- .end .wrap -->
+        </section>
 
 	
+
+
+
+
 	<section>
 	  <header class="aligncenter">
 	    Work In Progress
@@ -776,34 +790,65 @@
 	  <div class="wrap">
 	    <div class="grid">
 	      <div class="column">
-		<h2>Inside parser details.</h2>
+		<h2><u>Inside parser</u></h2>
 		<ul>
-		  <li><p class="text-intro">MaltParser - Arc Eager</p></li>
-		  <li><p class="text-intro">Stack/Buffer features. </p> (what are they?)</li>
+		  <li><h4 style="margin-left: 1em"><i>Faster parsers</i></h4></li>
+		  <li><p class="text-intro" style="margin-left: 2em">MaltParser</p> </li>
+		  <li><p class="text-intro" style="margin-left: 2em">Straka et al.</p> </li>
+		  <li><p class="text-intro" style="margin-left: 2em">Chen-Manning</p></li>
 		</ul>
 	      </div>
 	      <div class="column">
-		<h2>Outside parser details.</h2>
+		<h2><u>Outside parser</u></h2>
+		<ul>
+		  <li><h4 style="margin-left: 1em"><i>Accurate parsers</i></h4></li>
+		  <li><p class="text-intro" style="margin-left: 2em">BIST parser</p></li>
+		  <li><p class="text-intro" style="margin-left: 2em">Uppsala </p> </li>
+		  <li><p class="text-intro" style="margin-left: 2em">Dynamic programming parsers (Goméz-Rodríguez et al., 2018) </p></li>
+		</ul>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	
+
+	<section>
+	  <header class="aligncenter">
+	    Work In Progress
+	  </header>
+
+	  <div class="wrap">
+	    <div class="grid">
+	      <div class="column">
+		<h2><u>Inside parser details.</u></h2>
+		<ul>
+		  <li><p class="text-intro">MaltParser with liblinear - Arc Eager</p></li>
+		  <li><p class="text-intro">Standard features</p> </li>
+		</ul>
+	      </div>
+	      <div class="column">
+		<h2><u>Outside parser details.</u></h2>
 		<ul>
 		  <li><p class="text-intro">NN Stack-based Arc Standard</p></li>
 		  <li><p class="text-intro"></p></li>
-		  <li><p class="text-intro">Perceptron</p></li>
+		  <li><p class="text-intro">Feed-forward NN</p></li>
 		  <li style="margin-left: 2em">
-		    200 units.
+		    200 units
 		  </li>
 
 		  <li style="margin-left: 2em">
-		    1 layer.
+		    1 layer
 		  </li>
 		  <li style="margin-left: 2em">
-		    Stack/Buffer features.
+		    Standard features
 		  </li>
 		  <li><p class="text-intro">Input: </p></li>
 		  <li style="margin-left: 2em">
-		      chunk embeddings - word embedding of chunk's head (GloVe 100dim).
+		      chunk embeddings - word embedding of chunk's head (GloVe 100dim)
 		  </li>
 		  <li style="margin-left: 2em">
-		    POS, CPOS, UD-features, and relations.
+		    POS, CPOS, UD-features, and relations
 		  </li>
 		  
 		</ul>
@@ -811,7 +856,8 @@
 	    </div>
 	  </div>
 	</section>
-	
+
+
 	<!--<section>
 	  <header class="aligncenter">
 	    Work In Progress
@@ -931,22 +977,22 @@
 	<section>
 	  <ul class="flexblock">
 	    <li>
-	      <h2>Shown efficacy of approach.</h2>
+	      <h2 style="font-size: 2.2em; margin-bottom: 0.5em">Shown efficacy of approach.</h2>
+	      <p style="font-size: 1.5em">Preliminary results: no major loss in score and some improvements in speed. </p>
 	    </li>
 	    <li>
-	      <h2>Experiment with different embedding techniques.</h2>
-	    
-	      Average of chunk components, weighted average, combine lexical embedding and POS.
-	    
-	    </li>
-	    
-	    <li>
-	      <h2>Increase outside parser performance: explicitly pass more info about chunks?</h2>
+	      <h2 style="font-size: 2.2em; margin-bottom: 0.5em">Increase parsing performance</h2>
+	      <p style="font-size: 1.5em">Experiment with different embedding techniques.</p>
+	      <p style="font-size: 1.5em">Increase outside parser performance: explicitly pass more info about chunks?</p>
 	    </li>
 	    <li>
-	      <h2>Focus on other languages.</h2>
+	      <h2 style="font-size: 2.2em; margin-bottom: 0.5em">Increase parsing speed</h2>
+	      <p style="font-size: 1.5em">Refine implementation.</p>
+	      <p style="font-size: 1.5em">Experiment with different architectures.</p>
+	      <p style="font-size: 1.5em">Use more robust outside parsers.</p>
 	    </li>
 	  </ul>
+	  
 	</section>
 	<section class="aligncenter">
 	  <h1>Thanks</h1>
