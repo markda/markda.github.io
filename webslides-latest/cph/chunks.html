@@ -147,7 +147,7 @@
                 <h4> For large-scale analyses, this is <strong>cost-prohibitive</strong>.</h4>
               </div>
               <div class="column">
-		<h4>And constituency parsers and non-projective dependency parsers are <strong>slower</strong> still.</h4>
+		<h4>And constituency parsers and graph-based dependency parsers are <strong>slower</strong> still.</h4>
               </div>
             </div>
             <!--end .grid -->
@@ -196,7 +196,7 @@
 	  <div class="cta">
 	    
             <div class="number" style="border-right: 1px solid white">
-	      <h2>Shift-reduce algorithms</h2>
+	      <h2>Transition-based algorithms</h2>
 
             </div>
             <!--end .number -->
@@ -210,7 +210,7 @@
 	
 
 	<section class="aligncenter">
-	  <h2><u>Shift-reduce</u></h2>
+	  <h2><u>Transition-based</u></h2>
 	  <img class="aligncenter"style="max-width: 60em" src="../CPH/shift-reduce-2.png">
 	</section>
 
@@ -225,43 +225,45 @@
 	      </li>
 	</section>
 
-	<section class="bg-magenta-lite">
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-          <div class="wrap">
+	<section> <!--class="bg-blue-lite">-->
+	   <div class="wrap">
             <h2 class="aligncenter">Parser Speeds</h2>
-            <p class="aligncenter">Small sample of dependency parsers.</p>
+            <p class="aligncenter" style="font-size: 1.25em">Performance of dependency parsers using Stanford converted WSJ Penn Treebank.</p>
 	    <p class="aligncenter" style="margin-top: -2em; font-size: 0.75em">
 	    </p>
-            <table>
+            <table style="background: #dee7ed">
               <thead>
                <tr>
-                <th style="width: 30em">Parser</th>
+                 <th style="width: 30em">Parser</th>
+		 <th>Type</th>
                 <th>UAS</th>
                 <th>Speed (SPS)</th>
                </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>One</td>
-                  <td>Graph</td>
-                  <td>10</td>
+                  <td>Biaffine Attention (Dozat and Manning, 2016)</td>
+		  <td>Transition</td>
+                  <td>95.8</td>
+                  <td>411</td>
                 </tr>
                 <tr>
-                  <td>Two</td>
-                  <td>Shift</td>
-                  <td>1000</td>
+                  <td>BIST parser (Kiperwasser and Goldberg, 2016)</td>
+		  <td>Transition</td>
+                  <td>94.4</td>
+                  <td>51.2</td>
                 </tr>
                 <tr>
-                  <td>Three</td>
-                  <td>Shift</td>
+		  <td>Feedforward NN (Chen and Manning, 2014)</td>
+                  <td>Transition</td>
+                  <td>91.8</td>
                   <td>200</td>
                 </tr>
                 <tr>
-                  <td>Four</td>
+		  <td>Cube Pruning (Zhang and McDonald, 2012)</td>
                   <td>Graph</td>
-                  <td>24</td>
+                  <td>93.1 (CoNLL conversion)</td>
+                  <td>8.97</td>
                 </tr>
               </tbody>
             </table>
@@ -315,14 +317,26 @@
           <!-- .end .wrap -->
 	</section>
 	<section class="aligncenter">
-	  <header>
-	    Work In Progress
-	  </header>
-	  <h3>Working memory restrictions (10 items).</h3>
-	
-	  <h3>Need to cast linguistic input into a hierarchical abstract representation.</h3>
 
-	  <h3>Basically means using a chunker at sentence level.</h3>
+	  <h2>"Chunk-and-Pass" Processing</h2>
+	  <p class="text-intro">Christiansen and Chater, 2015</p>
+	  <ul class="flexblock metrics border">
+	    <li style="background: #eff3f6">
+	      <span>
+		<h3>Working-memory restrictions.</h3>
+		<h3>"Now-or-Never" bottleneck.</h3>
+	      </span>
+	    </li>
+	    <li style="background: #eff3f6">
+	      <span>
+		<h3>Need to compress and recode linguistic input into a hierarchical abstract representation.</h3>
+	      </span>
+	    </li>
+	    <li style="background: #eff3f6">
+	      <span>
+		<h3>For sentence-level NLP analyses, this means using a <u>chunker</u>.</h3>
+	      </span>
+	    </li>
 	</section>
 
 
@@ -433,11 +447,11 @@
 			<p style="font-size: 1.5em">Chunker</p>
 		      </li>
 		      <li style="margin-left:1em">
-			<p style="font-size: 1.5em">Inside Parser</p>
+			<p style="font-size: 1.5em">Inside and Outside Parser</p>
 		      </li>
-		      <li style="margin-left:1em">
+		      <!--<li style="margin-left:1em">
 			<p style="font-size: 1.5em">Outside Parser</p>
-		      </li>
+		      </li>-->
 		    </ol>
 		  </li>
 		</div>
@@ -522,7 +536,7 @@
               </div>
               <!--end .number -->
 	      <div class="benefit">
-		<h2>1.34x10<sup>134</sup> different rule sets.</h2>
+		<h2>1.34x10<sup>154</sup> different rule sets.</h2>
               </div>
               <!--end .benefit -->
             </div>
@@ -612,15 +626,15 @@
 	    </figurecaption>
               <div class="grid">
               <div class="column">
-		<img style="max-width: 24em" src="../CPH/frequencies-1.png"/>
-		<img style="max-width: 24em" src="../CPH/frequencies-4.png"/>
+		<img style="max-width: 24em" src="../CPH/frequencies-1-smaller.png"/>
+		<img style="max-width: 24em" src="../CPH/frequencies-4-smaller.png"/>
 	      </div>
 	      <div class="column">
-		<img style="max-width: 24em" src="../CPH/frequencies-2.png"/>
-		<img style="max-width: 24em" src="../CPH/frequencies-5.png"/>
+		<img style="max-width: 24em" src="../CPH/frequencies-2-smaller.png"/>
+		<img style="max-width: 24em" src="../CPH/frequencies-5-smaller.png"/>
 	      </div>
 	      <div class="column">
-		<img style="max-width: 24em" src="../CPH/frequencies-3.png"/>
+		<img style="max-width: 24em" src="../CPH/frequencies-3-smaller.png"/>
 	      </div>
 	    </div>
 
@@ -635,15 +649,15 @@
 		</figurecaption>
 	      <div class="grid">
               <div class="column">
-		<img style="max-width: 24em" src="../CPH/ruleLength-1.png"/>
-		<img style="max-width: 24em" src="../CPH/ruleLength-4.png"/>
+		<img style="max-width: 24em" src="../CPH/ruleLength-1-smaller.png"/>
+		<img style="max-width: 24em" src="../CPH/ruleLength-4-smaller.png"/>
 	      </div>
 	      <div class="column">
-		<img style="max-width: 24em" src="../CPH/ruleLength-2.png"/>
-		<img style="max-width: 24em" src="../CPH/ruleLength-5.png"/>
+		<img style="max-width: 24em" src="../CPH/ruleLength-2-smaller.png"/>
+		<img style="max-width: 24em" src="../CPH/ruleLength-5-smaller.png"/>
 	      </div>
 	      <div class="column">
-		<img style="max-width: 24em" src="../CPH/ruleLength-3.png"/>
+		<img style="max-width: 24em" src="../CPH/ruleLength-3-smaller.png"/>
 	      </div>
 	    </div>
 	  </div>	    
@@ -695,7 +709,7 @@
                     <use xlink:href="#fa-check-circle"></use>
                   </svg>
                 </span>
-                <p style="font-size: 1.9em"><strong>4. Collator</strong></p>
+                <p style="font-size: 1.9em"><strong>4. Final Parse</strong></p>
 		<p style="font-size: 1.5em">Need to collate the output from the two parsers.</p>
 		<p style="font-size: 1.5em">Results in a full dependency tree. </p>
               </li>
@@ -777,34 +791,25 @@
           <!-- .end .wrap -->
         </section>
 
-	
-
-
-
-
 	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-
 	  <div class="wrap">
 	    <div class="grid">
 	      <div class="column">
 		<h2><u>Inside parser</u></h2>
 		<ul>
 		  <li><h4 style="margin-left: 1em"><i>Faster parsers</i></h4></li>
-		  <li><p class="text-intro" style="margin-left: 2em">MaltParser</p> </li>
-		  <li><p class="text-intro" style="margin-left: 2em">Straka et al.</p> </li>
-		  <li><p class="text-intro" style="margin-left: 2em">Chen-Manning</p></li>
+		  <li><p class="text-intro" style="margin-left: 2em">MaltParser with liblinear (Nivre et al., 2007)</p> </li>
+		  <li><p class="text-intro" style="margin-left: 2em">Parsito (Straka et al., 2015)</p> </li>
+		  <li><p class="text-intro" style="margin-left: 2em">Feedforward NN (Chen and Manning, 2014)</p></li>
 		</ul>
 	      </div>
 	      <div class="column">
 		<h2><u>Outside parser</u></h2>
 		<ul>
 		  <li><h4 style="margin-left: 1em"><i>Accurate parsers</i></h4></li>
-		  <li><p class="text-intro" style="margin-left: 2em">BIST parser</p></li>
-		  <li><p class="text-intro" style="margin-left: 2em">Uppsala </p> </li>
-		  <li><p class="text-intro" style="margin-left: 2em">Dynamic programming parsers (Goméz-Rodríguez et al., 2018) </p></li>
+		  <li><p class="text-intro" style="margin-left: 2em">BIST parser (Kiperwasser and Goldberg, 2016)</p></li>
+		  <li><p class="text-intro" style="margin-left: 2em">Biaffine Attention(Dozat and Manning, 2016)</p> </li>
+		  <li><p class="text-intro" style="margin-left: 2em">Dynamic Programming parser (Goméz-Rodríguez et al., 2018) </p></li>
 		</ul>
 	      </div>
 	    </div>
@@ -814,25 +819,24 @@
 	
 
 	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
 
 	  <div class="wrap">
+	    <h3>Parsers used for following results:
 	    <div class="grid">
 	      <div class="column">
-		<h2><u>Inside parser details.</u></h2>
+		<h4><u>Inside parser</u></h4>
 		<ul>
 		  <li><p class="text-intro">MaltParser with liblinear - Arc Eager</p></li>
-		  <li><p class="text-intro">Standard features</p> </li>
+		  <!--<li><p class="text-intro">Standard features</p> </li>-->
 		</ul>
 	      </div>
 	      <div class="column">
-		<h2><u>Outside parser details.</u></h2>
+		<h4><u>Outside parser</u></h4>
 		<ul>
-		  <li><p class="text-intro">NN Stack-based Arc Standard</p></li>
+		  <li><p class="text-intro">Stack-based Arc Standard</p></li>
 		  <li><p class="text-intro"></p></li>
 		  <li><p class="text-intro">Feed-forward NN</p></li>
+		  <!--
 		  <li style="margin-left: 2em">
 		    200 units
 		  </li>
@@ -850,7 +854,7 @@
 		  <li style="margin-left: 2em">
 		    POS, CPOS, UD-features, and relations
 		  </li>
-		  
+		  -->
 		</ul>
 	      </div>
 	    </div>
@@ -911,21 +915,120 @@
 	</section>
 
 	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-	  <h1> TABLE OF RESULTS </h1>
+	  <h2>Chunk compression definition:</h2>
+	  <hr/>
+	  <pre>
+	    <p style="font-size: 2.6em" class="aligncenter">compression = <sup>#tokens</sup>&frasl;<sub>(#chunks + #tokens<sub>out</sub>)</sub></p>
+	  </pre>
 	</section>
 
 	<section>
-	  <header class="aligncenter">
-	    Work In Progress
-	  </header>
-	  <h2>Chunk compression definition </h2>
-	  <pre>
-	    <p style="font-size: 2.6em" class="aligncenter">compression = <sup>#tokens</sup>&frasl;<sub>(#chunks + #tokens<sub>Out</sub>)</sub></p>
-	  </pre>
+	  <div class="wrap size-60">
+            <h2 class="aligncenter">"Chunk-and-Pass" parser results</h2>
+            <p class="aligncenter" style="font-size: 1.25em"></p>
+	    <p class="aligncenter" style="margin-top: -2em; font-size: 0.75em">
+	    </p>
+            <table style="text-align:center; background: #dee7ed">
+	      <col>
+	      <colgroup span="9"></colgroup>
+              <thead>
+               <tr>
+                 <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+		 <th style="background: #dee7ed; text-align: center" colspan="2">Inside Parser</th>
+		 <th style="background: #dee7ed; text-align: center" colspan="2">Outside Parser</th>
+		 <th style="background: #dee7ed; text-align: center" colspan="2">Full Parser</th>
+                 <th style="background: #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+                 <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+               </tr>
+               <tr>
+                 <th style="text-align: center">Ruleset</th>
+		 <th style="text-align: center">UAS</th>
+		 <th style="text-align: center">LAS</th>
+		 <th style="text-align: center">UAS</th>
+		 <th style="text-align: center">LAS</th>
+		 <th style="text-align: center">UAS</th>
+		 <th style="text-align: center">LAS</th>
+                 <th style="text-align: center">Compression</th>
+                 <th style="text-align: center">Speed (SPS)</th>
+               </tr>
+	       
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0.01</td>
+		  <td>98.98</td>
+		  <td>98.74</td>
+		  <td>83.99</td>
+		  <td>81.80</td>
+		  <td>85.27</td>
+		  <td>83.26</td>
+		  <td>1.10</td>
+		  <td>2197.5</td>
+                </tr>
+                <tr>
+                  <td>0.05</td>
+		  <td>95.70</td>
+		  <td>95.39</td>
+		  <td>81.41</td>
+		  <td>78.06</td>
+		  <td>85.03</td>
+		  <td>82.79</td>
+		  <td>1.51</td>
+		  <td>2619.6</td>
+                </tr>
+                <tr>
+		  <td>0.09</td>
+		  <td>95.13</td>
+		  <td>94.74</td>
+		  <td>79.83</td>
+		  <td>75.09</td>
+		  <td>84.60</td>
+		  <td>82.89</td>
+		  <td>1.70</td>
+		  <td>3346.1</td>
+                </tr>
+                <tr>
+		  <td>0.11</td>
+		  <td>95.47</td>
+		  <td>94.97</td>
+		  <td>78.92</td>
+		  <td>74.33</td>
+		  <td>84.10</td>
+		  <td>81.50</td>
+		  <td>1.71</td>
+		  <td>3423.7</td>
+                </tr>
+                <tr>
+		  <td>0.15</td>
+		  <td>94.53</td>
+		  <td>93.95</td>
+		  <td>80.50</td>
+		  <td>75.51</td>
+		  <td>84.51</td>
+		  <td>81.68</td>
+		  <td>1.74</td>
+		  <td><strong>3490.4</strong></td>
+                </tr>
+
+		<tr>
+		  <td>baseline</td>
+		  <td>-</td>
+		  <td>-</td>
+		  <td>-</td>
+		  <td>-</td>
+		  <td><strong>85.85</strong></td>
+		  <td><strong>84.09</strong></td>
+		  <td>-</td>
+		  <td>2352.0</td>
+                </tr>
+		
+              </tbody>
+            </table>
+          </div>
+          <!-- .end .wrap -->
 	</section>
+
+
 	<section>
 	  <h2>NCRF++ Chunker Performance with different features</h2>
 	  <img class="aligncenter" style="max-width: 80em" src="../CPH/chunkingFeaturePerformance.png"/>
@@ -970,13 +1073,13 @@
 	  <img class="aligncenter" src="../CPH/as-contra-v.png"/>
 	</section>
 
-	<section class="bg-magenta">
+	<section class="bg-blue-lite">
 	  <h2>Concluding Remarks.</h2>
 	</section>
 
 	<section>
 	  <ul class="flexblock">
-	    <li>
+	   <li>
 	      <h2 style="font-size: 2.2em; margin-bottom: 0.5em">Shown efficacy of approach.</h2>
 	      <p style="font-size: 1.5em">Preliminary results: no major loss in score and some improvements in speed. </p>
 	    </li>
@@ -994,8 +1097,26 @@
 	  </ul>
 	  
 	</section>
+	<section class="slide-top aligncenter">
+	  <div class="wrap size-40">
+	  <h1 style="margin-bottom: 2em">Acknowledgements</h1>
+	  <p class="text-intro" align="left" style="margin-bottom: 4em">Work completed under the supervision of <strong>Carlos Goméz-Rodríguez</strong> and in collaboration with <strong>David Vilares</strong>.<p>
+	  <p align="left">This work has received funding from the European Research Council (ERC), under the European
+	    Union’s Horizon 2020 research and innovation programme (FASTPARSE, grant agreement No 714150).
+	  </p>
+	  </div>
+	</section>
+	
 	<section class="aligncenter">
 	  <h1>Thanks</h1>
+	</section>
+
+	<section class="aligncenter">
+	  <h1>Bibliography</h1>
+	</section>
+
+	<section class="aligncenter">
+	  <h1>Extra Slides</h1>
 	</section>
       </article>
     </main>

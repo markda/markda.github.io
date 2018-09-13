@@ -3096,8 +3096,8 @@ Solution: stackoverflow.com/questions/34250282/flexbox-safari-bug-flex-wrap
 /* -- Disable elastic scrolling/bounce:
 webslides.js will add .ws-ready automatically. Don't worry :) -- */
 body {
-  background-color: #f7f9fb;
-  color: #333; }
+    background-color: #f7f9fb;
+    color: #333; }
 
 :focus {
   -webkit-box-shadow: 0 0 2px #96bbee;
@@ -3165,7 +3165,7 @@ pre:hover {
 
 code,
 [class*='bg-'] pre {
-  background-color: rgba(255, 255, 255, 0.09); }
+    background-color: rgba(255, 255, 255, 0.09); }
 
 .bg-white code {
   background: rgba(0, 20, 80, 0.03); }
@@ -3175,7 +3175,7 @@ Slides - Backgrounds <section class="bg-primary">
 ================================================== */
 /*3 Corp Colors*/
 .bg-primary {
-  background-color: #44d; }
+    background-color: #44d; }
 
 .bg-secondary {
   background-color: #67d; }
@@ -3214,9 +3214,11 @@ Slides - Backgrounds <section class="bg-primary">
     background-color: #bc779b;}
 
 .bg-magenta-lite {
-    background-color: #ddbbcd;}
+    background-color: #f6eef3;}
 
 
+.bg-blue-lite {
+    background-color: #e6eff0;}
 
 .bg-facebook {
   background-color: #3b5998; }
@@ -3426,16 +3428,16 @@ Features & Clients List
 flexblock.steps
 ============================================= */
 .steps li:nth-child(1) {
-    background-color: #f2d9e6; }
+    background-color: #f8ecf2; }
 
 .steps li:nth-child(2) {
-  background-color: #e4b4cd; }
+  background-color: #f2d9e6; }
 
 .steps li:nth-child(3) {
-  background-color: #d78eb4; }
+  background-color: #ebc6d9; }
 
 .steps li:nth-child(4) {
-    background-color: #cb6b9d;}
+    background-color: #e4b4cd;}
 
 
 .process {
@@ -3444,17 +3446,17 @@ flexblock.steps
 
 .steps li:hover,
 .steps.blink li:hover > a {
-    background-color: #ff66a3;}
+    background-color: #dea1c0;}
 
 @media (min-width: 1024px) {
   .process.step-2 {
-    border-left-color: #f2d9e6; }
+    border-left-color: #f8ecf2; }
   .process.step-3 {
-    border-left-color: #e4b4cd; }
+    border-left-color: #f2d9e6; }
   .process.step-4 {
-    border-left-color: #d78eb4; }
+    border-left-color: #ebc6d9; }
   .steps li:hover + li [class*='step-'] {
-    border-left-color: #ff66a3; } }
+    border-left-color: #dea1c0; } }
 
 /*=========================================================
 Items: You can use for settings, drag&drop, close/delete...
