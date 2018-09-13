@@ -63,6 +63,43 @@
 	  </footer>
 	</section>
 
+	<!-- Slide 4 -->
+	        <section>
+          <div class="wrap">
+            <h2></h2>
+            <hr>
+            <div class="grid">
+              <div class="column">
+                <h4>Best-performing dependency parser can parse about 400 sentences per second.</h4>
+              </div>
+              <div class="column">
+                <h4> For large-scale analyses, this is <strong>cost-prohibitive</strong>.</h4>
+              </div>
+              <div class="column">
+		<h4>And constituency parsers are <strong>slower</strong> still.</h4>
+              </div>
+            </div>
+            <!--end .grid -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+	
+	
+	<section class="bg-lite">
+	   <div class="wrap">
+	    <h2>The English Wikipedia corpus contains about 90 million sentences.</h2>
+	  </div>
+	</section>
+	<!-- Slide 6 -->
+	<section>
+	  <div class="wrap">
+            <a href="https://clipartxtras.com/download/023c0ddf01a6abaacebf60aee075671f6d278907.html"><img class="alignright size-30" src="../IMG/EarthSpin.gif"></a>
+            <p class="text-intro">To parse the entirety of this corpus, it would take <strong>2.25x10<sup>5</sup> seconds</strong>.</p>
+            <h1>Or <u>2.6</u> days.</h1>
+
+          </div>
+          <!-- .end .wrap -->
+	</section>
 	<section>
           <div class="wrap">
             <h3></h3>
@@ -135,43 +172,6 @@
           </div>
           <!-- .end .wrap -->
         </section>
-	<!-- Slide 4 -->
-	        <section>
-          <div class="wrap">
-            <h2></h2>
-            <hr>
-            <div class="grid">
-              <div class="column">
-                <h4>State-of-the-art dependency parsers can only parse about 400 sentences per second.</h4>
-              </div>
-              <div class="column">
-                <h4> For large-scale analyses, this is <strong>cost-prohibitive</strong>.</h4>
-              </div>
-              <div class="column">
-		<h4>And constituency parsers are <strong>slower</strong> still.</h4>
-              </div>
-            </div>
-            <!--end .grid -->
-          </div>
-          <!-- .end .wrap -->
-        </section>
-	
-	
-	<section class="bg-lite">
-	   <div class="wrap">
-	    <h2>The English Wikipedia corpus contains about 90 million sentences.</h2>
-	  </div>
-	</section>
-	<!-- Slide 6 -->
-	<section>
-	  <div class="wrap">
-            <a href="https://clipartxtras.com/download/023c0ddf01a6abaacebf60aee075671f6d278907.html"><img class="alignright size-30" src="../IMG/EarthSpin.gif"></a>
-            <p class="text-intro">To parse the entirety of this corpus, it would take <strong>2.25x10<sup>5</sup> seconds</strong>.</p>
-            <h1>Or <u>2.6</u> days.</h1>
-
-          </div>
-          <!-- .end .wrap -->
-	</section>
 
 	<section>
 	  <header>
@@ -372,7 +372,67 @@
           </div>
           <!-- .end .wrap -->
         </section>
-	
+
+<section>
+	  <header>
+	    <h3>System Flow</h3>
+	    </header>
+          <div class="wrap">
+            
+            <ul class="flexblock steps">
+              <li>
+                <span>
+                    <img src="../IMG/saw.png" style="top-margrin: -2em; height: 0.9em"/>
+                </span>
+                <p style="font-size: 1.9em"><strong>1. Chunker</strong></p>
+                <p style="font-size: 1.5em">I. Supervised chunker classifies each word (IOB notation).</p>
+		<p style="font-size: 1.5em">II. Sends chunks to the <i>Inside</i> parser.</p>
+		<p style="font-size: 1.5em">III. Sends chunk embeddings to the <i>Outside</i> parser.  
+              </li>
+              <li>
+                <div class="process step-2"></div>
+                <span>
+                  <svg class="fa-leaf">
+                    <use xlink:href="#fa-leaf"></use>
+                  </svg>
+                </span>
+		<p style="font-size: 1.9em"><strong>2. Inside Parser</strong></p>
+                <p style="font-size: 1.5em">Faster parser for simpler, shorter relations.</p>
+		<p style="font-size: 1.5em">Parsers the components of chunks.</p>
+              </li>
+              <li>
+                <div class="process step-3"></div>
+                <span>
+                  <svg class="fa-tree">
+                    <use xlink:href="#fa-tree"></use>
+                  </svg>
+                </span>
+                <p style="font-size: 1.9em"><strong>3. Outside Parser</strong></p>
+                <p style="font-size: 1.5em">State-of-the-art parsers that we want to accelerate. </p>
+		<p style="font-size: 1.5em">Parses the abstract representation of the input.</p>
+              </li>
+              <li>
+                <div class="process step-4"></div>
+                <span>
+                  <svg class="fa-check-circle">
+                    <use xlink:href="#fa-check-circle"></use>
+                  </svg>
+                </span>
+                <p style="font-size: 1.9em"><strong>4. Final Parse</strong></p>
+		<p style="font-size: 1.5em">Need to collate the output from the two parsers.</p>
+		<p style="font-size: 1.5em">Results in a full dependency tree. </p>
+              </li>
+            </ul>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+
+		<section>
+	  <div class="wrap">
+	    <img src="../IMG/flow2.png"/>
+	  </div>
+	</section>
 	<section>
           <div class="wrap">
             <h3></h3>
@@ -665,66 +725,28 @@
 	    
 	</section>
 	
-	<section>
-	  <header>
-	    <h3>System Flow</h3>
-	    </header>
-          <div class="wrap">
-            
-            <ul class="flexblock steps">
-              <li>
-                <span>
-                    <img src="../IMG/saw.png" style="top-margrin: -2em; height: 0.9em"/>
-                </span>
-                <p style="font-size: 1.9em"><strong>1. Chunker</strong></p>
-                <p style="font-size: 1.5em">I. Supervised chunker classifies each word (IOB notation).</p>
-		<p style="font-size: 1.5em">II. Sends chunks to the <i>Inside</i> parser.</p>
-		<p style="font-size: 1.5em">III. Sends chunk embeddings to the <i>Outside</i> parser.  
-              </li>
-              <li>
-                <div class="process step-2"></div>
-                <span>
-                  <svg class="fa-leaf">
-                    <use xlink:href="#fa-leaf"></use>
-                  </svg>
-                </span>
-		<p style="font-size: 1.9em"><strong>2. Inside Parser</strong></p>
-                <p style="font-size: 1.5em">Faster parser for simpler, shorter relations.</p>
-		<p style="font-size: 1.5em">Parsers the components of chunks.</p>
-              </li>
-              <li>
-                <div class="process step-3"></div>
-                <span>
-                  <svg class="fa-tree">
-                    <use xlink:href="#fa-tree"></use>
-                  </svg>
-                </span>
-                <p style="font-size: 1.9em"><strong>3. Outside Parser</strong></p>
-                <p style="font-size: 1.5em">State-of-the-art parsers that we want to accelerate. </p>
-		<p style="font-size: 1.5em">Parses the abstract representation of the input.</p>
-              </li>
-              <li>
-                <div class="process step-4"></div>
-                <span>
-                  <svg class="fa-check-circle">
-                    <use xlink:href="#fa-check-circle"></use>
-                  </svg>
-                </span>
-                <p style="font-size: 1.9em"><strong>4. Final Parse</strong></p>
-		<p style="font-size: 1.5em">Need to collate the output from the two parsers.</p>
-		<p style="font-size: 1.5em">Results in a full dependency tree. </p>
-              </li>
-            </ul>
+
+	<section class="frame">
+
+	  <div class="wrap">
+	    <h3 class="aligncenter" style="margin-bottom: 3em"></h3>
+	    <div class="grid vertical-align">
+              <div class="column" style="border-right: 1px solid black">
+		<h4>Encode UD data as <strong>IOB</strong> format using a rule set</h4>
+	      </div>
+	      <div class="column" style="border-right: 1px solid black">
+		<h4>IOB UD data fed to <strong>NCRF++</strong> implemented neural network.</h4>
+	      </div>
+	      <div class="column" style="border-right: 1px solid black">
+		<h4>Tokens labelled as part of a chunk sent to the <strong>inside</strong> parser.</h4>
+	      </div>
+	      <div class="column">
+		<h4>The abstract sentence form is sent to the <strong>outside</strong> parser.</h4>
+	      </div>
+            </div>
           </div>
           <!-- .end .wrap -->
         </section>
-	<section>
-	  <div class="wrap">
-	    <img src="../IMG/flow2.png"/>
-	  </div>
-	</section>
-
-	
 
 	<section>
           <!--.wrap = container (width: 90%) -->
@@ -769,28 +791,6 @@
           <!-- .end .wrap -->
         </section>
 
-
-	<section class="frame">
-
-	  <div class="wrap">
-	    <h3 class="aligncenter" style="margin-bottom: 3em"></h3>
-	    <div class="grid vertical-align">
-              <div class="column" style="border-right: 1px solid black">
-		<h4>Encode UD data as <strong>IOB</strong> format using a rule set</h4>
-	      </div>
-	      <div class="column" style="border-right: 1px solid black">
-		<h4>IOB UD data fed to <strong>NCRF++</strong> implemented neural network.</h4>
-	      </div>
-	      <div class="column" style="border-right: 1px solid black">
-		<h4>Tokens labelled as part of a chunk sent to the <strong>inside</strong> parser.</h4>
-	      </div>
-	      <div class="column">
-		<h4>The abstract sentence form is sent to the <strong>outside</strong> parser.</h4>
-	      </div>
-            </div>
-          </div>
-          <!-- .end .wrap -->
-        </section>
 
 	<section>
 	  <div class="wrap">
@@ -923,6 +923,11 @@
 	  </pre>
 	</section>
 
+	<section>
+	  <h2 style="margin-top: -1.5em; margin-bottom: 1.5em">NCRF++ Chunker Performance</h2>
+	  <img class="aligncenter" src="../IMG/chunkingPerformance.png"/>
+	</section>
+	
 	<section class="slide-top">
 	  <!--<div class="wrap size-60">-->
           <h2 class="aligncenter" style="margin-top: -1.5em">"Chunk-and-Pass" parser results</h2>
@@ -1030,20 +1035,6 @@
 	</section>
 
 
-	<section>
-	  <h2 style="margin-top: -1.5em; margin-bottom: 1.5em">NCRF++ Chunker Performance with different features</h2>
-	  <img class="aligncenter" style="max-width: 60em" src="../IMG/chunkingFeaturePerformance.png"/>
-	  <h4 style="margin-top: -1em" align="center">All with words feature.</h4>
-	</section>
-	<section>
-	  <h2 style="margin-top: -1.5em; margin-bottom: 1.5em">NCRF++ Chunker Performance</h2>
-	  <img class="aligncenter" src="../IMG/chunkingPerformance.png"/>
-	</section>
-
-	<section class="slide-top">
-	  <h2 style="margin-top: -1.5em">Full System Performance of Unsupervised Chunker.</h2>
-	  <img class="aligncenter" src="../IMG/full-unsuper.png"/>
-	</section>
 
 	<section>
 	  <h2 style="margin-top: -1.5em">Full System Performance of Supervised Chunker.</h2>
@@ -1055,20 +1046,12 @@
 	  <img class="aligncenter" src="../IMG/insideOutside.png"/>
 	</section>
 
-	<section>
-	  <h2 style="margin-top: -1.5em">Performance And Compression Rate.</h2>
-	  <img class="aligncenter" src="../IMG/las-comp.png"/>
-	</section>
 	
 	<section>
 	  <h2 style="margin-top: -1.5em">Preliminary speeds (TPS/SPS) and compression.</h2>
 	  <img class="aligncenter" src="../IMG/speed-comp.png"/>
 	</section>
 
-	<section>
-	  <h2 style="margin-top: -1.5em">Preliminary speeds (TPS/SPS) against compression.</h2>
-	  <img class="aligncenter" src="../IMG/v-contra-comp.png"/>
-	</section>
 
 	<section>
 	  <h2 style="margin-top: -1.5em">Performance against speed.</h2>
@@ -1155,6 +1138,32 @@
 	<section class="aligncenter">
 	  <h1>Extra Slides</h1>
 	</section>
+
+
+	
+	<section>
+	  <h2 style="margin-top: -1.5em; margin-bottom: 1.5em">NCRF++ Chunker Performance with different features</h2>
+	  <img class="aligncenter" style="max-width: 60em" src="../IMG/chunkingFeaturePerformance.png"/>
+	  <h4 style="margin-top: -1em" align="center">All with words feature.</h4>
+	</section>
+
+	
+	<section>
+	  <h2 style="margin-top: -1.5em">Performance And Compression Rate.</h2>
+	  <img class="aligncenter" src="../IMG/las-comp.png"/>
+	</section>
+
+	
+	<section>
+	  <h2 style="margin-top: -1.5em">Preliminary speeds (TPS/SPS) against compression.</h2>
+	  <img class="aligncenter" src="../IMG/v-contra-comp.png"/>
+	</section>
+
+	<section class="slide-top">
+	  <h2 style="margin-top: -1.5em">Full System Performance of Unsupervised Chunker.</h2>
+	  <img class="aligncenter" src="../IMG/full-unsuper.png"/>
+	</section>
+	
       </article>
     </main>
     <!--main-->
