@@ -43,7 +43,7 @@
 	   </tr>
 	   <tr class="danger">
              <td>Negative Results Workshop</td>
-             <td><i>11 May</i><sup><a href="#fn1" id="ref1">1</a></sup></td>
+             <td><i>UNK</i><sup><a href="#fn1" id="ref1">1</a></sup></td>
 	     <td><p id="demo3" align="right"></p></td>
 	   </tr>
 	   <tr style="background:#c2c2d6">
@@ -84,7 +84,7 @@
        // Set the date we're counting down to
        var countDownDate1 = new Date("Apr 8, 2020 23:59:59").getTime();
        var countDownDate2 = new Date("May 11, 2020 23:59:59").getTime();
-       var countDownDate3 = new Date("May 11, 2020 23:59:59").getTime();
+       var countDownDate3 = new Date("May 11, 2021 23:59:59").getTime();
        var countDownDate4 = new Date("May 15, 2020 23:59:59").getTime();
        var countDownDate5 = new Date("June 26, 2020 23:59:59").getTime();
        var countDownDate6 = new Date("June 05, 2020 23:59:59").getTime();
@@ -165,6 +165,10 @@
        if (days8 > 52) {
 		       clearInterval(x);
 		       document.getElementById("demo8").innerHTML = "<i>UNK</i>";
+		       }
+       if (days3 > 52) {
+		       clearInterval(x);
+		       document.getElementById("demo3").innerHTML = "<i>UNK</i>";
 		       }
        if (distance8 < 0) {
 		       clearInterval(x);
