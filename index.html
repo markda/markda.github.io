@@ -27,12 +27,7 @@
 	 </thead>
 	 <tbody>
 	   <br>
-	   <tr class="info">
-             <td><a style="color:#6f6767" href="https://2020.emnlp.org/call-for-papers" > <b>EMNLP</b></a></td>
-             <td>01 Jun</td>
-	     <td>14 Sep</td>
-	     <td><p id="emnlp" align="right"></p></td>
-	   </tr>
+	   
 
 	    <tr class="danger">
              <td><a style="color:#6f6767" href="http://aacl2020.org/calls/papers/" target="_blank"><b>AACL</b></a></td>
@@ -98,6 +93,14 @@
 	     <td><i>UNK</i></td>
 	     <td><p id="sustain" align="right"></p></td>
 	   </tr>
+
+	   <tr class="info">
+             <td><a style="color:#6f6767" href="https://www.mind.org.uk/information-support/types-of-mental-health-problems/depression/about-depression/" > <b>ACL</b></a></td>
+             <td>25 Dec</td>
+	     <td>06 Jan</td>
+	     <td><p id="acl" align="right"></p></td>
+	   </tr>
+	   
 	 </tbody>
        </table>
      </div>
@@ -108,7 +111,7 @@
      <!--</div>-->
      <script>
        // Set the date we're counting down to
-       var countDownDateEMNLP = new Date("Jun 1, 2020 23:59:59").getTime();
+       var countDownDateACL = new Date("Jun 1, 2020 23:59:59").getTime();
        var countDownDateAACL = new Date("Jun 26, 2020 23:59:59").getTime();
        var countDownDateCOLING = new Date("Jul 1, 2020 23:59:59").getTime();
        var countDownDateCoNLL = new Date("Jul 17, 2020 23:59:59").getTime();
@@ -126,7 +129,7 @@
        var date = new Date();
        var thendate = new Date("Apr 8, 2020 23:59:59");
        // Find the distanceTLT between now and the count down date
-       var distanceEMNLP = countDownDateEMNLP - now;
+       var distanceACL = countDownDateACL - now;
        var distanceAACL = countDownDateAACL - now;
        var distanceCOLING = countDownDateCOLING - now;
        var distanceCoNLL = countDownDateCoNLL - now;
@@ -138,8 +141,8 @@
        var distanceSustain = countDownDateSustain - now;
        
        // Time calculations for days, hours, minutes and seconds
-       var daysEMNLP = Math.floor(distanceEMNLP / (1000 * 60 * 60 * 24) /7);
-       var hoursEMNLP = Math.floor((distanceEMNLP / (1000*60*60*24))-daysEMNLP*7);
+       var daysACL = Math.floor(distanceACL / (1000 * 60 * 60 * 24) /7);
+       var hoursACL = Math.floor((distanceACL / (1000*60*60*24))-daysACL*7);
        var daysAACL = Math.floor(distanceAACL / (1000 * 60 * 60 * 24) /7);
        var hoursAACL = Math.floor((distanceAACL / (1000*60*60*24))-daysAACL*7);
        var daysCOLING = Math.floor(distanceCOLING / (1000 * 60 * 60 * 24) /7);
@@ -160,7 +163,7 @@
        var daysSustain = Math.floor(distanceSustain / (1000 * 60 * 60 * 24) /7);
        var hoursSustain = Math.floor((distanceSustain / (1000*60*60*24))-daysSustain*7);
        // Output the result in an element with id="demo"
-       document.getElementById("emnlp").innerHTML = daysEMNLP + "w " + hoursEMNLP + "d ";
+       document.getElementById("acl").innerHTML = daysACL + "w " + hoursACL + "d ";
        document.getElementById("aacl").innerHTML = daysAACL + "w " + hoursAACL + "d ";
        document.getElementById("coling").innerHTML = daysCOLING + "w " + hoursCOLING + "d ";
        document.getElementById("conll").innerHTML = daysCoNLL + "w " + hoursCoNLL + "d ";
@@ -171,7 +174,7 @@
        document.getElementById("negative").innerHTML = daysNegative + "w " + hoursNegative + "d ";
        document.getElementById("sustain").innerHTML = daysSustain + "w " + hoursSustain + "d ";
        // If the count down is over, write some text 
-       if (distanceEMNLP < 0) {
+       if (distanceACL < 0) {
 		       clearInterval(x);
 		       document.getElementById("emnlp").innerHTML = "EXPIRED";
 		       }
