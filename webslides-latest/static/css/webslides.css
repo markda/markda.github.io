@@ -1523,8 +1523,8 @@ form[class*='bg-'] {
   text-align: center; }
 
 .noFadeIn {
-  -webkit-animation: fadeIn .0006s ease-in-out;
-          animation: fadeIn .0006s ease-in-out; }
+  -webkit-animation: fadeIn .000s ease-in-out;
+          animation: fadeIn .000s ease-in-out; }
 
  
 @media (min-width: 768px) {
@@ -2685,6 +2685,9 @@ td.goals {
 tr > td {
   font-weight: 400; }
 
+td.hover {
+    background: #000;
+}
 /*=========================================
 14. Forms
 =========================================== */
@@ -3199,7 +3202,8 @@ Slides - Backgrounds <section class="bg-primary">
   background-color: #d5d9e2; }
 
 .bg-green {
-  background-color: #077; }
+    background-color: #bfd9d9;
+    color: black;}
 
 .bg-purple {
   background-color: #62b; }
@@ -3238,7 +3242,6 @@ Slides - Backgrounds <section class="bg-primary">
 .bg-primary,
 .bg-secondary,
 .bg-blue,
-.bg-green,
 .bg-purple,
 .bg-red,
 .bg-facebook,
@@ -3392,7 +3395,7 @@ nav li.email a:hover {
 .metrics li:hover,
 .specs li:hover,
 .reasons li:hover {
-  background-color: rgba(0, 20, 80, 0.03); }
+    background-color: rgba(0, 20, 80, 0.03); }
 
 /*=========================================
 Features & Clients List
@@ -3834,4 +3837,17 @@ Slides Index
     border: 0.6rem solid rgba(0, 20, 255, 0.2); }
 
 .text-slide-number {
-  color: #abc; }
+    color: #abc; }
+
+a:visited { outline: }
+p.small {
+    font-size: 1.25em;
+    font-variant: small-caps;
+}
+
+p.small-bigger {
+    font-size: 1.75em;
+    font-variant: small-caps;
+}
+
+td:hover, th:hover { background:#ffcce6 !important; color:#000 !important; }
