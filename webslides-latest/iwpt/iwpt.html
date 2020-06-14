@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <script type="text/javascript">
+function unhide(divID) {
+var item = document.getElementById(divID);
+console.log("Hello world!");
+console.log(item.src)
+var arse = item.getAttribute("src")
+console.log(arse)
+if (item.getAttribute("src") === "img/i-am-an-idiot.svg") {
+item.src = "img/i-am-an-idiot-2.svg"
+}
+else if (item.getAttribute("src") === "img/i-am-an-idiot-2.svg") {
+item.src = "img/i-am-an-idiot-3.svg"
+}
+else if (item.getAttribute("src") === "img/i-am-an-idiot-3.svg") {
+item.src = "img/i-am-an-idiot-4.svg"
+}
+else if (item.getAttribute("src") === "img/i-am-an-idiot-4.svg") {
+item.src = "img/i-am-an-idiot-4.svg"
+}
+}
+  </script>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Distilling Neural Networks for Greener and Faster Dependency Parsing</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <!-- CSS Base -->
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/svg-icons.css">
+    <link rel="icon" href="https://markda.github.io/webslides-latest/IMG/fast-logo-sin-palabras-outline-dark.png">
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+  </head>
+  <body>
+    <main role="main">
+      <article id="webslides">
+
+        <!-- Quick Guide
+          - Each parent <section> in the <article id="webslides"> element is an individual slide.
+          - Vertical sliding = <article id="webslides" class="vertical">
+          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+        -->
+
+	<!-- Title Page -->
+        <section class="bg-black-blue aligncenter">
+
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/zZdxxAEhOYg/')"></span>
+	  -->
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/FqtgyYgBLyQ/')"></span>-->
+          <!--.wrap = container (width: 90%) -->
+	 
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/5j9_AGfNqV4/')"></span>-->
+	  <span class="background dark" style="background-image:url('../IMG/unaImagenBorrosaDeNieve.jpg')"></span>
+          <div class="wrap">
+	    <h1 class="text-landing">Distilling Neural Networks for Greener and Faster Dependency Parsing</h1>
+            <p class="text-subtitle">Mark Anderson and Carlos Gómez-Rodríguez</p>
+          </div>
+	  <footer>
+	    <span class="alignright">
+	      <img src="../IMG/eu-flag.jpg" style="margin-left: 2.5em" ></img>
+	      <img src="../IMG/erc-logo.png" ></img>
+
+	      <p class="text-subtitle" style="margin-left: 2.5em">ERC</p>
+	    </span>
+	    <span class="alignright">
+	      <img src="../IMG/coruna-logo.png"></img>
+	      <p class="text-subtitle">University of A Coruña</p>
+	    </span>
+	    <span class="alignleft">
+		<img src="../IMG/fast-logo-sin-palabras.png" style="margin-right: 2.5em"></img>
+		<p class="text-subtitle" style="margin-right: 2.5em">FASTPARSE project</p>
+	    </span>
+	    
+	    <span class="alignleft">
+	      <img src="../IMG/lys-logo.png" style="margin-right: 2.5em"></img>
+	      <p class="text-subtitle" style="margin-right: 2.5em" >LYS group</p>
+	    </span>
+
+	    <span class="alignleft">
+	      <img src="../IMG/citic.png"></img>
+	      <p class="text-subtitle">CITIC</p>
+	    </span>	    
+	  </footer>
+	</section>
+
+
+
+
+
+	<section >
+	  <div class="wrap size-60">
+          <h3 class="aligncenter" style="margin-top: -1.5em">Slow and out of fashion</h3>
+	  <p align="center" style="font-size: 1.1em; margin-bottom:-1.8em">English Penn Treebank</p>
+          <hr></hr>
+	       <table style="text-align:center background: #f7f9fb">
+	      <col>
+	      <colgroup span="5"></colgroup>
+              <thead>
+		<tr>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb; border-bottom-color: #f7f9fb"></th>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb; text-align: center" colspan="2" >Speed (sent/s) </th>
+		  <th style="background: #f7f9fb; border-right: 1px solid #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb; text-align: center" colspan="2">Attachment Scores</th>
+		  </tr>
+               <tr>
+                 <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+		 <th style="background: #f7f9fb; text-align: center">GPU</th>
+		 <th style="background: #f7f9fb; text-align: center">CPU</th>
+		 <th style="background: #f7f9fb; text-align: center">UAS</th>
+		 <th style="background: #f7f9fb; text-align: center">LAS</th>
+	       </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left"><b>Pointer-TD</b> (Ma et al., 2018)</td>
+		  <td>-</td>
+		  <td>10.2</td>
+		  <td>95.87</td>
+		  <td>94.19</td>
+		 
+                </tr>
+                <tr>
+                  <td style="text-align: left"><b>Pointer-LR</b> (F-G and G-R, 2019)<sup><a href="#fn2" id="ref2">1</a></sup></td>
+		  <td>-</td>
+		  <td>23.1</td>
+		  <td>96.04</td>
+		  <td>94.43</td>
+		 </tr>
+                <tr>
+		  <td style="text-align: left"><b>HPSG</b> (Zhou and Zhao, 2019)</td>
+		  <td>158.7</td>
+		  <td>-</td>
+		  <td>96.09</td>
+		  <td>94.68</td>
+		 </tr>
+                <tr>
+		  <td style="text-align: left"><b>BIST - Transition</b> (Kiperwasser and Goldberg, 2016)</td>
+		  <td>-</td>
+		  <td>76(1)<sup><a href="#fn1" id="ref1">‡</a></sup></td>
+		  <td>93.9</td>
+		  <td>91.9</td>
+		 </tr>
+                <tr>
+		  <td style="text-align: left"><b>BIST - Graph</b> (Kiperwasser and Goldberg, 2016)</td>
+		  <td>-</td>
+		  <td>80(0)<sup><a href="#fn1" id="ref1">‡</a></sup></td>
+		  <td>93.1</td>
+		  <td>91.0</td>
+		  </tr>
+
+                <tr>
+		  <td style="text-align: left"><b>Biaffine</b> (Dozat and Manning, 2017)</td>
+		  <td>411</td>
+		  <td>-</td>
+		  <td>95.74</td>
+		  <td>94.08</td>
+		</tr>
+
+		<tr>
+		  <td style="text-align: left"><b>CM</b> (Chen and Manning, 2014)</td>
+		  <td>-</td>
+		  <td>654</td>
+		  <td>91.80</td>
+		  <td>89.60</td>
+		  </tr>
+
+		<tr>
+		  <td style="text-align: left"><b>SeqLab</b> (Strzyz et al., 2019)</td>
+		  <td>648(20)<sup><a href="#fn1" id="ref1">‡</a></sup></td>
+		  <td>101(2)<sup><a href="#fn1" id="ref1">‡</a></sup></td>
+		  <td>93.67</td>
+		  <td>91.72</td>
+		</tr>
+
+		
+              </tbody>
+            </table>
+	  
+
+	  
+
+	   <div class="footer-copyright text-left py-3"> <sup id="fn2">1</sup>Fernandez-González and Gómez-Rodríguez, 2019
+	   </div>
+	   <div class="footer-copyright text-left py-3"> <sup id="fn1">‡</sup>Speeds taken from (Strzyz et al., 2019).
+	   </div>   
+            </div>
+	</section>
+
+
+	<section>
+	  <div class="wrap size-60">
+          <h3 class="aligncenter" style="margin-top: -1.5em">Still slow, but a little more fashionable</h3>
+	  <p align="center" style="font-size: 1.1em; margin-bottom:-1.8em">English Penn Treebank</p>
+          <hr></hr>
+	       <table style="text-align:center; background: #f7f9fb">
+	      <col>
+	      <colgroup span="5"></colgroup>
+              <thead>
+		<tr>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb; border-bottom-color: #f7f9fb"></th>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb; text-align: center" colspan="2" >Speed (sent/s) </th>
+		  <th style="background: #f7f9fb; border-right: 1px solid #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb; text-align: center" colspan="2">Attachment Scores</th>
+		  </tr>
+               <tr>
+                 <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+		 <th style="background: #f7f9fb; text-align: center">GPU</th>
+		 <th style="background: #f7f9fb; text-align: center">CPU</th>
+		 <th style="background: #f7f9fb; text-align: center">UAS</th>
+		 <th style="background: #f7f9fb; text-align: center">LAS</th>
+	       </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left"><b>UUParser</b> (Smith et al., 2018)</td>
+		  <td>-</td>
+		  <td>42(1)</td>
+		  <td>94.63</td>
+		  <td>92.77</td>
+		 
+                </tr>
+                <tr>
+                  <td style="text-align: left"><b>Biaffine (PyTorch)</b><sup><a href="#fn1" id="ref1">1</a></sup></td>
+		  <td>1003(3)</td>
+		  <td>53(0)</td>
+		  <td>95.74</td>
+		  <td>94.07</td>
+		 </tr>
+               
+		<tr>
+		  <td style="text-align: left"><b>SeqLab</b> (Strzyz et al., 2019)</td>
+		  <td>1064(13)</td>
+		  <td>99(1)</td>
+		  <td>93.46</td>
+		  <td>91.49</td>
+		</tr>
+		<tr><td style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right-color: #f7f9fb"></td></tr>
+		<tr>
+		  <td style="text-align: left"><b>Biaffine Distilled-20</b></td>
+		  <td>1189(4)</td>
+		  <td>391(2)</td>
+		  <td>92.84</td>
+		  <td>90.73</td>
+		</tr>
+
+		<tr>
+		  <td style="text-align: left"><b>Biaffine Distilled-40</b></td>
+		  <td>1153(3)</td>
+		  <td>96(0)</td>
+		  <td>94.59</td>
+		  <td>92.64</td>
+		</tr>
+
+		<tr>
+		  <td style="text-align: left"><b>Biaffine Distilled-60</b></td>
+		  <td>1112(6)</td>
+		  <td>71(1)</td>
+		  <td>94.78</td>
+		  <td>92.86</td>
+		</tr>
+
+		<tr>
+		  <td style="text-align: left"><b>Biaffine Distilled-80</b></td>
+		  <td>1033(5)</td>
+		  <td>61(0)</td>
+		  <td>94.84</td>
+		  <td>92.95</td>
+		 </tr>
+                
+              </tbody>
+            </table>
+	  
+
+	  
+
+	   <div class="footer-copyright text-left py-3"> <sup id="fn1">1</sup><a target="_blank" href="https://github.com/yzhangcs/parser">https://github.com/yzhangcs/parser</a>
+	   </div>
+	   <div class="footer-copyright text-left py-3">Speeds measured 5 times using an Intel Core i7-7700 and an Nvidia GeForce GTX 1080 with a single CPU core.</div>   
+            </div>
+	</section>
+
+	<section onclick="unhide('hide_show');" >
+	  
+	    <h3 id="arse" class="text-landing" align="center">
+	      Teacher-Student Distillation 
+	    </h3>
+	    <img id="hide_show" style="max-width: 62em"  class="aligncenter" src="img/i-am-an-idiot.svg"/>
+	  
+	</section>
+
+	<section class="bg-black">
+	  <span class="background dark" style="background-image:url('img/forest.jpg')"></span>
+	  <div class="wrap">
+            <h3 class="text-landing" >Treebanks</h3>
+	    <p class="small" >Universal Dependency Treebanks v2.4 (Nivre et al., 2019)</p>
+            <!-- li>a? Add blink = <ul class="flexblock metrics blink">-->
+            <ul class="flexblock metrics border">
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Ancient Greek Perseus</p>
+		<p style="margin-bottom: -.25em">Indo-European, Greek</p>
+                <p >11K sents, 14.9 mean length, mDD 4.1 </p>
+              </li>
+              <li>
+                <p class="small-bigger" style="margin-bottom: 0.5em">Chinese GSD</p>
+		<p style="margin-bottom: -.25em">Sino-Tibetan, Sinitic</p>
+                <p >4K sents, 25.7 mean length, mDD 4.7 </p>
+              </li>
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">English EWT</p>
+		<p style="margin-bottom: -.25em">Indo-European, Germanic</p>
+                <p >13K sents, 17.3 mean length, mDD 3.7 </p>
+              </li>
+            </ul>
+	    <ul class="flexblock metrics border">
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Finnish TDT</p>
+		<p style="margin-bottom: -.25em">Uralic, Finnic</p>
+                <p >12K sents, 14.3 mean length, mDD 3.4 </p>
+              </li>
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Hebrew HTB</p>
+		<p style="margin-bottom: -.25em">Afro-Asiatic, Semitic</p>
+                <p >5K sents, 27.3 mean length, mDD 3.9 </p>
+              </li>
+	      <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Russian GSD</p>
+		<p style="margin-bottom: -.25em">Indo-European, Balto-Slavic</p>
+                <p >4K sents, 20.5 mean length, mDD 3.5 </p>
+              </li>
+	    </ul>
+	    <ul class="flexblock metrics border">
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Tamil TTB</p>
+		<p style="margin-bottom: -.25em">Dravidian, Southern</p>
+                <p >400 sents, 16.8 mean length, mDD 3.5 </p>
+              </li>
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Uyghur UDT</p>
+		<p style="margin-bottom: -.25em">Turkic, Karluk</p>
+                <p >2K sents, 12.6 mean length, mDD 3.5 </p>
+              </li>
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Wolof WTB</p>
+		<p style="margin-bottom: -.25em">Niger-Congo, Senegambian</p>
+                <p >1K sents, 20.8 mean length, mDD 3.5 </p>
+              </li>
+            </ul>
+          </div>
+	  <div align="right" style="margin-top: 2em; margin-right: 4em; font-size: .8em" class="footer-copyright text-left py-3">Based on treebanks suggested by de Lhoneux et al. (2017).
+	  </div>
+</div>
+
+	  
+          <!-- .end .wrap -->
+        </section>
+
+<section>
+          <div class="wrap">
+            <h2 class="text-landing"  align="center">The Bane of Real Trees<sup><a style="font-size: 0.5em" href="#fn2" id="ref2">1</a></sup></h2>
+            <hr>
+            <div class="wrap">
+	      <div class="grid ms">
+              <div class="column">
+		<img style="max-width: 48em; margin-top: 0em; margin-bottom: 1em"  class="aligncenter" src="img/power.svg"/>
+	      </div>
+	      <div class="column">
+		<p align="left" style="font-size: 1.25em"><strong>Training GPU energy consumption.</strong></p>
+		<p align="left" style="font-size: 1.25em">From Dehouck et al., 2020 using Arabic PADT, Dutch Alpino & LassySmall, Finnish TDT, and Russian SynTagRus.</p>
+	      </div>
+	      </div>
+	    <div class="footer-copyright text-left py-3" style="font-size: 0.75em"> <sup id="fn2">1</sup>The relentless march of NLP is certainly far too hasty for Ents.
+	   </div>
+
+        </section>
+
+
+</section>
+<section class="bg-green">
+  <div class="wrap">
+    <h3 align="center" class="text-landing">Energy Cost at Runtime</h3>   
+  <div class="grid ms">
+    <div class="column">
+    	<table style="text-align:center">
+	  <colgroup span="6"></colgroup>
+	  <thead>
+	  <tr>
+	    <th style="background: #bfd9d9; border-left: 1px solid #bfd9d9; border-right: 1px solid #bfd9d9; border-top-color: #bfd9d9; border-bottom-color: #bfd9d9"></th>
+	    <th style="background: #bfd9d9; border-left: 1px solid #bfd9d9; border-right: 1px solid #bfd9d9; border-top-color: #bfd9d9; text-align: center; text-transform: none"  colspan="5">
+	      Energy (kJ)</th>
+	  </tr>
+	  <tr>
+	    <th style="background: #bfd9d9; border-left: 1px solid #bfd9d9; border-top-color: #bfd9d9"></th>
+	    <th style="text-align: center; text-transform: none">Full</th>
+	    <th style="text-align: center">D-80</th>
+	    <th style="text-align: center">D-60</th>
+	    <th style="text-align: center">D-40</th>
+	    <th style="text-align: center">D-20</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+	    <td>inference only</td>
+	    <td>0.32</td>
+	    <td>0.31</td>
+	    <td>0.27</td>
+	    <td>0.25</td>
+	    <td>0.24</td>
+	  </tr>
+	  <tr>
+	    <td>w/ model load</td>
+	    <td>6.91</td>
+	    <td>6.70</td>
+	    <td>6.90</td>
+	    <td>5.95</td>
+	    <td>3.67</td>
+	  </tr>
+	</tbody>
+      </table>
+    </div>
+    <div class="column">
+      <p  style="margin-top: 4em">Total energy consumption running parsers for each respective treebank (8K sentences in total). w/ model load includes the energy used while loading each model.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+	<section>
+	  <div class="wrap">
+	    <h3 id="arse" class="text-landing" style="margin-bottom:-1.em" align="center">
+	      GPU Parsing Speeds 
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <div class="grid">
+	      <div class="column">
+		<img class="aligncenter" src="img/gpu-tokens.png"/>
+	      </div>
+	      <div class="column">
+		<img class="aligncenter" src="img/gpu-sents.png"/>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	
+	<section>
+	  <div class="wrap">
+	    <h3 id="arse" class="text-landing" style="margin-bottom:-1.em" align="center">
+	      CPU Parsing Speeds 
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <div class="grid">
+	      <div class="column">
+		<img class="aligncenter" src="img/cpu-tokens.png"/>
+	      </div>
+	      <div class="column">
+		<img class="aligncenter" src="img/cpu-sents.png"/>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+
+	<section>
+	  <div class="wrap">
+	    <h3 id="arse" class="text-landing" style="margin-bottom:-1.em" align="center">
+	      Parsing Accuracy 
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <div class="grid">
+	      <div class="column">
+		<img class="aligncenter" src="img/uas.png"/>
+	      </div>
+	      <div class="column">
+		<img class="aligncenter" src="img/las.png"/>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="wrap">
+	    <h3 id="arse" class="text-landing" style="margin-bottom:-1.em" align="center">
+	      Parsing Accuracy 
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <div class="grid">
+	      <div class="column">
+		<img class="aligncenter" src="img/delta-20.png"/>
+	      </div>
+	      <div class="column">
+		<img class="aligncenter" src="img/delta-80.png"/>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="wrap">
+	    <h3 id="arse" class="text-landing" style="margin-bottom:-1.em" align="center">
+	      Parsing Accuracy and Speed
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <div class="grid">
+	      <div class="column">
+		<img class="aligncenter" src="img/gpu-comparison.png"/>
+	      </div>
+	      <div class="column">
+		<img class="aligncenter" src="img/cpu-comparison.png"/>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+<section>
+	  <div class="wrap size-60">
+          <h3 class="aligncenter" style="margin-top: -1.5em">Relenting to the PTB Bias</h3>
+	  <p align="center" style="font-size: 1.1em; margin-bottom:-1.8em">English Penn Treebank</p>
+          <hr></hr>
+	       <table style="text-align:center; background: #f7f9fb">
+	      <col>
+	      <colgroup span="5"></colgroup>
+              <thead>
+		<tr>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb; border-bottom-color: #f7f9fb"></th>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb; text-align: center" colspan="2" >Speed (sent/s) </th>
+		  <th style="background: #f7f9fb; border-right: 1px solid #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb; text-align: center" colspan="2">Attachment Scores</th>
+		  </tr>
+               <tr>
+                 <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+		 <th style="background: #f7f9fb; text-align: center">GPU</th>
+		 <th style="background: #f7f9fb; text-align: center">CPU</th>
+		 <th style="background: #f7f9fb; text-align: center">UAS</th>
+		 <th style="background: #f7f9fb; text-align: center">LAS</th>
+	       </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left"><b>UUParser</b> (Smith et al., 2018)</td>
+		  <td>-</td>
+		  <td>42(1)</td>
+		  <td>94.63</td>
+		  <td>92.77</td>
+		 
+                </tr>
+                <tr>
+                  <td style="text-align: left"><b>Biaffine (PyTorch)</b><sup><a href="#fn1" id="ref1">1</a></sup></td>
+		  <td>1003(3)</td>
+		  <td>53(0)</td>
+		  <td>95.74</td>
+		  <td>94.07</td>
+		 </tr>
+               
+		<tr>
+		  <td style="text-align: left"><b>SeqLab</b> (Strzyz et al., 2019)</td>
+		  <td>1064(13)</td>
+		  <td>99(1)</td>
+		  <td>93.46</td>
+		  <td>91.49</td>
+		</tr>
+		<tr><td style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-right-color: #f7f9fb"></td></tr>
+		<tr>
+		  <td style="text-align: left"><b>Biaffine Distilled-20</b></td>
+		  <td>1189(4)</td>
+		  <td>391(2)</td>
+		  <td>92.84</td>
+		  <td>90.73</td>
+		</tr>
+
+		<tr>
+		  <td style="text-align: left"><b>Biaffine Distilled-40</b></td>
+		  <td>1153(3)</td>
+		  <td>96(0)</td>
+		  <td>94.59</td>
+		  <td>92.64</td>
+		</tr>
+
+		<tr>
+		  <td style="text-align: left"><b>Biaffine Distilled-60</b></td>
+		  <td>1112(6)</td>
+		  <td>71(1)</td>
+		  <td>94.78</td>
+		  <td>92.86</td>
+		</tr>
+
+		<tr>
+		  <td style="text-align: left"><b>Biaffine Distilled-80</b></td>
+		  <td>1033(5)</td>
+		  <td>61(0)</td>
+		  <td>94.84</td>
+		  <td>92.95</td>
+		 </tr>
+                
+              </tbody>
+            </table>
+	  
+
+	  
+
+	       <div class="footer-copyright text-left py-3"> <sup id="fn1">1</sup><a target="_blank" href="https://github.com/yzhangcs/parser">https://github.com/yzhangcs/parser</a>
+	   </div>
+	   <div class="footer-copyright text-left py-3">Speeds measured 5 times using an Intel Core i7-7700 and an Nvidia GeForce GTX 1080 with a single CPU core.</div>   
+            </div>
+	</section>
+
+	
+	<section class="bg-blue-lite">
+	  <h2>Concluding Remarks.</h2>
+	</section>
+
+	  
+	</section>
+	<section class="slide-top aligncenter">
+	  <div class="wrap size-40">
+	  <h1 style="margin-bottom: 2em">Acknowledgements</h1>
+	  <p class="text-intro" align="left" style="margin-bottom: 4em">Work completed under the supervision of <strong>Carlos Gómez-Rodríguez</strong>.
+	  <p align="left">This work has received funding from the European Research Council (ERC), under the European
+	    Union’s Horizon 2020 research and innovation programme (FASTPARSE, grant agreement No 714150).
+	  </p>
+	  </div>
+	</section>
+	
+	<section>
+	  <h1 align="center">References</h1>
+	  <ol>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Xuezhe Ma, Zecong Hu, Jingzhou Liu, Nanyun Peng,Graham Neubig, and Eduard Hovy</span>. <u>2018</u>. <em>Stack-pointer networks for dependency parsing.</em> In Proceedings of the ACL, pages 1403–1414.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Daniel Fernández-González and Carlos Gómez-Rodrı́guez.</span> <u>2019</u>. <em>Left-to-right dependency parsing with pointer networks.</em> In Proceedings of NAACL-HLT, pages 710–716.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Junru Zhou and Hai Zhao</span>. <u>2019</u>. <em>Head-driven phrase structure grammar parsing on Penn Treebank.</em> In Proceedings of ACL, pages 2396–2408.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Eliyahu Kiperwasser and Yoav Goldberg.</span> <u>2016</u>. <em>Simple and accurate dependency parsing using bidirectional LSTM feature representations.</em> TACL 4:313–327.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Timothy Dozat and Christopher D Manning.</span> <u>2017</u>. <em>Deep biaffine attention for neural dependency parsing.</em> ICLR
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Danqi Chen and Christopher Manning.</span> <u>2014</u>. <em>A fast and accurate dependency parser using neural networks.</em> In Proceedings of EMNLP, pages 740–750.
+	    </li>
+	    <li>
+	     <span style="font-variant: small-caps; font-size: 1.1em;">Michalina Strzyz, David Vilares, and Carlos GómezRodrı́guez.</span> <u>2019</u>. <em>Viable dependency parsing as sequence labeling.</em> In Proceedings of NAACL-HLT, pages 717–723
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Aaron Smith, Miryam de Lhoneux, Sara Stymne, and Joakim Nivre.</span> <u>2018</u>. <em>An investigation of the interactions between pre-trained word embeddings, character models and pos tags in dependency parsing.</em> In Proceedings of EMNLP, pages 2711–2720.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Joakim Nivre, Mitchell Abrams, Željko Agić, et al.</span> <u>2019</u>. <em>Universal Dependencies 2.4.</em> LINDAT/CLARIN digital library at ÚFAL, Faculty of Mathematics and Physics, Charles University.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Miryam de Lhoneux, Sara Stymne, and Joakim Nivre.</span> <u>2017</u>. <em>Old school vs. new school: Comparing transition-based parsers with and without neural network enhancement.</em> In TLT, pages 99–110.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Mathieu Dehouck, Mark Anderson, and Carlos Gómez-Rodrı́guez.</span> <u>2020</u>. <em>Efficient EUD parsing.</em> In Proceedings of the EUD Shared task at IWPT.
+	    </li>
+	</section>
+	
+      </article>
+    </main>
+    <!--main-->
+
+    <!-- Required -->
+    <script src="../static/js/webslides.js"></script>
+
+    <script>
+      window.ws = new WebSlides();
+
+    </script>
+
+    
+    
+    
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="../static/js/svg-icons.js"></script>
+
+  </body>
+</html>
