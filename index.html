@@ -211,13 +211,13 @@
 		       clearInterval(x);
 		       document.getElementById("conll").innerHTML = "EXPIRED";
 		       }
-       if (daysNegative > 52) {
+       if (daysNegative < 0) {
 		       clearInterval(x);
-		       document.getElementById("negative").innerHTML = "<i>UNK</i>";
+		       document.getElementById("negative").innerHTML = "EXPIRED";
 		       }
-       if (daysSustain > 52) {
+       if (daysSustain < 0) {
 		       clearInterval(x);
-		       document.getElementById("sustain").innerHTML = "<i>UNK</i>";
+		       document.getElementById("sustain").innerHTML = "EXPIRED";
 		       }
 		}, 1000)
 		;    
