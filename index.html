@@ -48,14 +48,23 @@
 	     <td><p id="naacl" align="right"></p></td>
 	   </tr>
 
-	   <tr style="background:#d2f9f3">
+
+	    <tr style="background:#d2f9f3">
+             <td><a style="color:#6f6767" href="https://ijcai-21.org/cfp/" target="_blank"><b>IJCAI</b></a></td>
+             <td>12 Jan</td>
+	     <td>24 Apr</td>
+	     <td><p id="ijcai" align="right"></p></td>
+	   </tr> 
+
+	    
+	    <tr class="danger">
              <td><a style="color:#6f6767" href="https://nodalida2021.github.io/cfp.html" target="_blank"><b>NoDaLiDa</b></a></td>
              <td>01 Feb</td>
 	     <td>15 Mar</td>
 	     <td><p id="noda" align="right"></p></td>
 	   </tr>
 
-	   <tr class="danger">
+	   <tr style="background:#ffccb3">
             <td><a style="color:#6f6767" href="https://2021.aclweb.org/calls/papers/" target="_blank" > <b>ACL</b></a></td>
              <td>10 Feb</td>
 	     <td>05 May</td>
@@ -63,15 +72,10 @@
 	   </tr>
 
 	   
-	    <tr style="background:#ffccb3">
-             <td><a style="color:#6f6767" href="https://www.mind.org.uk/cy/gwybodaeth-a-chefnogaeth/iselder/yngl%c5%b7n-ag-iselder/" target="_blank"><b>UNK</b></a></td>
-             <td>UNK</td>
-	     <td>UNK</td>
-	     <td><p id="conll" align="right"></p></td>
-	   </tr> 
+
 
 	   <tr class="success">
-             <td><a style="color:#6f6767" href="" target="_blank"><b>UNK</b></a></td>
+             <td><a style="color:#6f6767" href="https://www.mind.org.uk/cy/gwybodaeth-a-chefnogaeth/iselder/yngl%c5%b7n-ag-iselder/" target="_blank"><b>UNK</b></a></td>
              <td>UNK</td>
 	     <td>UNK</td>
 	     <td><p id="coling" align="right"></p></td>
@@ -124,7 +128,7 @@
        var countDownDateACL = new Date("Feb 10, 2021 23:59:59").getTime();
        var countDownDateNoDa = new Date("Feb 1, 2021 23:59:59").getTime();
        var countDownDateCOLING = new Date("Jul 1, 2020 23:59:59").getTime();
-       var countDownDateCoNLL = new Date("Jul 17, 2020 23:59:59").getTime();
+       var countDownDateIJCAI = new Date("Jan 12, 2021 23:59:59").getTime();
        var countDownDateICLR = new Date("Sep 28, 2020 23:59:59").getTime();
        var countDownDateComputEL = new Date("Sep 1, 2020 23:59:59").getTime();
        var countDownDateUD = new Date("Sep 4, 2020 23:59:59").getTime();
@@ -142,7 +146,7 @@
        var distanceACL = countDownDateACL - now;
        var distanceNoDa = countDownDateNoDa - now;
        var distanceCOLING = countDownDateCOLING - now;
-       var distanceCoNLL = countDownDateCoNLL - now;
+       var distanceICJAI = countDownDateIJCAI - now;
        var distanceICLR = countDownDateICLR - now;
        var distanceComputEL = countDownDateComputEL - now;
        var distanceUD = countDownDateUD - now;
@@ -157,8 +161,8 @@
        var hoursNoDa = Math.floor((distanceNoDa / (1000*60*60*24))-daysNoDa*7);
        var daysCOLING = Math.floor(distanceCOLING / (1000 * 60 * 60 * 24) /7);
        var hoursCOLING = Math.floor((distanceCOLING / (1000*60*60*24))-daysCOLING*7);
-       var daysCoNLL = Math.floor(distanceCoNLL / (1000 * 60 * 60 * 24) /7);
-       var hoursCoNLL = Math.floor((distanceCoNLL / (1000*60*60*24))-daysCoNLL*7);
+       var daysIJCAI = Math.floor(distanceICJAI / (1000 * 60 * 60 * 24) /7);
+       var hoursIJCAI = Math.floor((distanceICJAI / (1000*60*60*24))-daysIJCAI*7);
        var daysICLR = Math.floor(distanceICLR / (1000 * 60 * 60 * 24) /7);
        var hoursICLR = Math.floor((distanceICLR / (1000*60*60*24))-daysICLR*7);
        var daysComputEL = Math.floor(distanceComputEL / (1000 * 60 * 60 * 24) /7);
@@ -176,7 +180,7 @@
        document.getElementById("acl").innerHTML = daysACL + "w " + hoursACL + "d ";
        document.getElementById("noda").innerHTML = daysNoDa + "w " + hoursNoDa + "d ";
        document.getElementById("coling").innerHTML = daysCOLING + "w " + hoursCOLING + "d ";
-       document.getElementById("conll").innerHTML = daysCoNLL + "w " + hoursCoNLL + "d ";
+       document.getElementById("ijcai").innerHTML = daysIJCAI + "w " + hoursIJCAI + "d ";
        document.getElementById("iclr").innerHTML = daysICLR + "w " + hoursICLR + "d ";
        <!--document.getElementById("computel").innerHTML = daysComputEL + "w " + hoursComputEL + "d ";-->
        <!--document.getElementById("ud").innerHTML = daysUD + "w " + hoursUD + "d ";-->
@@ -196,9 +200,9 @@
 		       clearInterval(x);
 		       document.getElementById("coling").innerHTML = "EXPIRED";
 		       }
-       if (distanceCoNLL < 0) {
+       if (distanceICJAI < 0) {
 		       clearInterval(x);
-		       document.getElementById("conll").innerHTML = "EXPIRED";
+		       document.getElementById("ijcai").innerHTML = "EXPIRED";
 		       }
        if (distanceICLR < 0) {
 		       clearInterval(x);
@@ -207,10 +211,6 @@
        if (distanceEACL < 0 ) {
 		       clearInterval(x);
 		       document.getElementById("eacl").innerHTML = "EXPIRED";
-		       }
-       if (distanceCoNLL < 0) {
-		       clearInterval(x);
-		       document.getElementById("conll").innerHTML = "EXPIRED";
 		       }
        if (daysNAACL < 0) {
 		       clearInterval(x);
