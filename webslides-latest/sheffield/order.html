@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>On the Frailty of Universal POS Tags for Neural UD Parsers</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <!-- CSS Base -->
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/svg-icons.css">
+    <link rel="icon" href="https://markda.github.io/webslides-latest/IMG/fast-logo-sin-palabras-outline-dark.png">
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+  </head>
+  <body>
+    <main role="main">
+      <article id="webslides">
+
+        <!-- Quick Guide
+          - Each parent <section> in the <article id="webslides"> element is an individual slide.
+          - Vertical sliding = <article id="webslides" class="vertical">
+          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+        -->
+
+	<!-- Title Page -->
+        <section class="bg-black-blue aligncenter">
+
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/zZdxxAEhOYg/')"></span>
+	  -->
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/FqtgyYgBLyQ/')"></span>-->
+          <!--.wrap = container (width: 90%) -->
+	 
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/5j9_AGfNqV4/')"></span>-->
+	  <span class="background dark" style="background-image:url('../IMG/unaImagenBorrosaDeNieve.jpg')"></span>
+          <div class="wrap">
+	    <h1 class="text-landing">On the Parsing Difficulty of SOV and SVO Structures</h1>
+            <p class="text-subtitle">Mark Anderson and Carlos Gómez-Rodríguez</p>
+          </div>
+	  <footer>
+	    <span class="alignright">
+	      <img src="../IMG/eu-flag.jpg" style="margin-left: 2.5em" ></img>
+	      <img src="../IMG/erc-logo.png" ></img>
+
+	      <p class="text-subtitle" style="margin-left: 2.5em">ERC</p>
+	    </span>
+	    <span class="alignright">
+	      <img src="../IMG/coruna-logo.png"></img>
+	      <p class="text-subtitle">University of A Coruña</p>
+	    </span>
+	    <span class="alignleft">
+		<img src="../IMG/fast-logo-sin-palabras.png" style="margin-right: 2.5em"></img>
+		<p class="text-subtitle" style="margin-right: 2.5em">FASTPARSE project</p>
+	    </span>
+	    
+	    <span class="alignleft">
+	      <img src="../IMG/lys-logo.png" style="margin-right: 2.5em"></img>
+	      <p class="text-subtitle" style="margin-right: 2.5em" >LYS group</p>
+	    </span>
+
+	    <span class="alignleft">
+	      <img src="../IMG/citic.png"></img>
+	      <p class="text-subtitle">CITIC</p>
+	    </span>	    
+	  </footer>
+	</section>
+	
+	<section class="bg-white">
+	  
+	   <h3 style="margin-bottom:-1.em" align="center">
+	     UD Structure Definition
+	   </h3>
+	   <div class="wrap size-60">
+	       <img class="aligncenter" src="img/trees.png"/>
+	   </div>
+	 </section>
+
+	 <section class="bg-white">
+	   <h3 style="margin-bottom:-1.em" align="center">
+	     Sentence Length Differences
+	   </h3>
+	   <div class="wrap-60">
+	   <div class="grid">
+	     <div class="column">
+	       <img class="aligncenter" src="img/disparate-sentence-lengths.svg"/>
+	     </div>
+	     <div class="column">
+	       <img class="aligncenter" src="img/sentence_length_counts.svg"/>
+	     </div>
+	   </div>
+	   </div>
+	 </section>
+
+	 <section class="bg-white">
+	   <h3 style="margin-bottom:-1.em" align="center">
+	     Sentence-length Binned Results: mDD
+	   </h3>
+	   <div class="wrap">
+	     <img class="aligncenter" src="img/mdd-binned.svg"/>
+	   </div>
+	 </section>
+
+	 
+	 <section class="bg-white">
+	   <h3 style="margin-bottom:-1.em" align="center">
+	     Sentence-length Binned Results: LAS
+	    </h3>
+	   <div class="wrap">
+	     <img class="aligncenter" src="img/las-binned.svg"/>
+	   </div>
+	 </section>
+
+	  <section class="bg-white">
+	   <h3 style="margin-bottom:-1.em" align="center">
+	     Sentence-length Binned Results: Order Recall
+	    </h3>
+	   <div class="wrap-60">
+	     <img class="aligncenter" src="img/recall-binned.svg"/>
+	   </div>
+	 </section>
+
+	   <section class="bg-white">
+	   <h3 style="margin-bottom:-1.em" align="center">
+	     Global Effect
+	   </h3>
+	     <div class="wrap-60">
+	       <div class="grid">
+		 <div class="column">
+		   <img class="aligncenter" src="img/las.svg"/>
+		   <img class="aligncenter" src="img/las-lex.svg"/>
+		 </div>
+	       </div>
+	     </div>
+	   </section>
+
+	   	 <section class="bg-white">
+	   <h3 style="margin-bottom:-1.em" align="center">
+	     Data Imbalance
+	   </h3>
+	   <div class="wrap size-60">
+	       <img class="aligncenter" src="img/lang-fam.png"/>
+	   </div>
+	 </section>
+	
+      </article>
+    </main>
+    <!--main-->
+
+    <!-- Required -->
+    <script src="../static/js/webslides.js"></script>
+
+    <script>
+      window.ws = new WebSlides();
+
+    </script>
+
+    
+    
+    
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="../static/js/svg-icons.js"></script>
+
+  </body>
+</html>
