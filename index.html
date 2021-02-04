@@ -66,15 +66,16 @@
 
 	   
 	    <tr style="background:#cad5d9">
-             <td><a style="color:#6f6767" href="https://www.mind.org.uk/cy/gwybodaeth-a-chefnogaeth/iselder/yngl%c5%b7n-ag-iselder/" target="_blank"><b>UNK</b></a></td>
-             <td>UNK</td>
-	     <td>UNK</td>
-	     <td><p id="iclr" align="right"></p></td>
+              <td><a style="color:#6f6767" href="https://2021.emnlp.org/call-for-papers" target="_blank">
+		  <b>EMNLP</b></a></td>
+             <td>10 May</td>
+	     <td>25 Aug</td>
+	     <td><p id="emnlp" align="right"></p></td>
 	   </tr>
 
 	   
 	   <tr style="background:#c2c2d6">
-                <td><a style="color:#6f6767" href="" target="_blank"><b>UNK</b></a></td>
+                <td><a style="color:#6f6767" href="https://www.mind.org.uk/cy/gwybodaeth-a-chefnogaeth/iselder/yngl%c5%b7n-ag-iselder/" target="_blank"><b>UNK</b></a></td>
 	     <td>UNK</td>
 	     <td>UNK</td>
 	     <td><p id="eacl" align="right"></p></td>
@@ -103,7 +104,7 @@
        var countDownDateNoDa = new Date("Feb 8, 2021 23:59:59").getTime();
        var countDownDateIWPT = new Date("Apr 26, 2021 23:59:59").getTime();
        var countDownDateIJCAI = new Date("Jan 12, 2021 23:59:59").getTime();
-       var countDownDateICLR = new Date("Sep 28, 2020 23:59:59").getTime();
+       var countDownDateEMNLP = new Date("May 10, 2021 23:59:59").getTime();
        var countDownDateComputEL = new Date("Sep 1, 2020 23:59:59").getTime();
        var countDownDateUD = new Date("Sep 4, 2020 23:59:59").getTime();
        var countDownDateEACL = new Date("Oct 7, 2020 23:59:59").getTime();
@@ -116,12 +117,12 @@
        var now = new Date().getTime();
        var date = new Date();
        var thendate = new Date("Apr 8, 2020 23:59:59");
-       // Find the distanceICLR between now and the count down date
+       // Find the distance between now and the count down date
        var distanceACL = countDownDateACL - now;
        var distanceNoDa = countDownDateNoDa - now;
        var distanceIWPT = countDownDateIWPT - now;
        var distanceICJAI = countDownDateIJCAI - now;
-       var distanceICLR = countDownDateICLR - now;
+       var distanceEMNLP = countDownDateEMNLP - now;
        var distanceComputEL = countDownDateComputEL - now;
        var distanceUD = countDownDateUD - now;
        var distanceEACL = countDownDateEACL - now;
@@ -137,8 +138,8 @@
        var hoursIWPT = Math.floor((distanceIWPT / (1000*60*60*24))-daysIWPT*7);
        var daysIJCAI = Math.floor(distanceICJAI / (1000 * 60 * 60 * 24) /7);
        var hoursIJCAI = Math.floor((distanceICJAI / (1000*60*60*24))-daysIJCAI*7);
-       var daysICLR = Math.floor(distanceICLR / (1000 * 60 * 60 * 24) /7);
-       var hoursICLR = Math.floor((distanceICLR / (1000*60*60*24))-daysICLR*7);
+       var daysEMNLP = Math.floor(distanceEMNLP / (1000 * 60 * 60 * 24) /7);
+       var hoursEMNLP = Math.floor((distanceEMNLP / (1000*60*60*24))-daysEMNLP*7);
        var daysComputEL = Math.floor(distanceComputEL / (1000 * 60 * 60 * 24) /7);
        var hoursComputEL = Math.floor((distanceComputEL / (1000*60*60*24))-daysComputEL*7);
        var daysUD = Math.floor(distanceUD / (1000 * 60 * 60 * 24) /7);
@@ -155,7 +156,7 @@
        document.getElementById("noda").innerHTML = daysNoDa + "w " + hoursNoDa + "d ";
        document.getElementById("iwpt").innerHTML = daysIWPT + "w " + hoursIWPT + "d ";
        document.getElementById("ijcai").innerHTML = daysIJCAI + "w " + hoursIJCAI + "d ";
-       document.getElementById("iclr").innerHTML = daysICLR + "w " + hoursICLR + "d ";
+       document.getElementById("emnlp").innerHTML = daysEMNLP + "w " + hoursEMNLP + "d ";
        <!--document.getElementById("computel").innerHTML = daysComputEL + "w " + hoursComputEL + "d ";-->
        <!--document.getElementById("ud").innerHTML = daysUD + "w " + hoursUD + "d ";-->
        document.getElementById("eacl").innerHTML = daysEACL + "w " + hoursEACL + "d ";
@@ -178,9 +179,9 @@
 		       clearInterval(x);
 		       document.getElementById("ijcai").innerHTML = "EXPIRED";
 		       }
-       if (distanceICLR < 0) {
+       if (distanceEMNLP < 0) {
 		       clearInterval(x);
-		       document.getElementById("iclr").innerHTML = "EXPIRED";
+		       document.getElementById("emnlp").innerHTML = "EXPIRED";
 		       }
        if (distanceEACL < 0 ) {
 		       clearInterval(x);
