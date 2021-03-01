@@ -27,17 +27,6 @@
 	 </thead>
 	 <tbody>
 	   <br>
-	   
-
-	    
-
-	   
-	   
-
-	   
-	   
-
-
 	  
 	    
 	    <tr class="danger">
@@ -56,6 +45,12 @@
 
 	   
 
+	   <tr style="background:#c2c2d6">
+	     <td><a style="color:#6f6767" href=""><b>RANLP</td>               
+	     <td>15 Apr</td>
+	     <td>31 Jul</td>
+	     <td><p id="ranlp" align="right"></p></td>
+	   </tr>
 
 	   <tr class="success">
              <td><a style="color:#6f6767" href="https://iwpt21.sigparse.org/"  target="_blank"><b>IWPT</b></a></td>
@@ -74,15 +69,9 @@
 	   </tr>
 
 	   
-	   <tr style="background:#c2c2d6">
-                <td><a style="color:#6f6767" href="https://www.mind.org.uk/cy/gwybodaeth-a-chefnogaeth/iselder/yngl%c5%b7n-ag-iselder/" target="_blank"><b>UNK</b></a></td>
-	     <td>UNK</td>
-	     <td>UNK</td>
-	     <td><p id="eacl" align="right"></p></td>
-	   </tr>
 
 	    <tr style="background:#c4a8a8">
-             <td><a style="color:#6f6767" href=""><b>UNK</td>
+             <td><a style="color:#6f6767" href="https://www.mind.org.uk/cy/gwybodaeth-a-chefnogaeth/iselder/yngl%c5%b7n-ag-iselder/" target="_blank"><b>UNK</b></a></td>
              <td>UNK</td>
 	     <td>UNK</td>
 	     <td><p id="naacl" align="right"></p></td>
@@ -107,7 +96,7 @@
        var countDownDateEMNLP = new Date("May 10, 2021 23:59:59").getTime();
        var countDownDateComputEL = new Date("Sep 1, 2020 23:59:59").getTime();
        var countDownDateUD = new Date("Sep 4, 2020 23:59:59").getTime();
-       var countDownDateEACL = new Date("Oct 7, 2020 23:59:59").getTime();
+       var countDownDateRANLP = new Date("Apr 15, 2021 23:59:59").getTime();
        var countDownDateNegative = new Date("Aug 15, 2020 23:59:59").getTime();
        var countDownDateNAACL = new Date("Nov 23, 2020 23:59:59").getTime();
        // Update the count down every 1 second
@@ -125,7 +114,7 @@
        var distanceEMNLP = countDownDateEMNLP - now;
        var distanceComputEL = countDownDateComputEL - now;
        var distanceUD = countDownDateUD - now;
-       var distanceEACL = countDownDateEACL - now;
+       var distanceRANLP = countDownDateRANLP - now;
        var distanceNegative = countDownDateNegative - now;
        var distanceNAACL = countDownDateNAACL - now;
        
@@ -144,8 +133,8 @@
        var hoursComputEL = Math.floor((distanceComputEL / (1000*60*60*24))-daysComputEL*7);
        var daysUD = Math.floor(distanceUD / (1000 * 60 * 60 * 24) /7);
        var hoursUD = Math.floor((distanceUD / (1000*60*60*24))-daysUD*7);
-       var daysEACL = Math.floor(distanceEACL / (1000 * 60 * 60 * 24) /7);
-       var hoursEACL = Math.floor((distanceEACL / (1000*60*60*24))-daysEACL*7);
+       var daysRANLP = Math.floor(distanceRANLP / (1000 * 60 * 60 * 24) /7);
+       var hoursRANLP = Math.floor((distanceRANLP / (1000*60*60*24))-daysRANLP*7);
        
        var daysNegative = Math.floor(distanceNegative / (1000 * 60 * 60 * 24) /7);
        var hoursNegative = Math.floor((distanceNegative / (1000*60*60*24))-daysNegative*7);
@@ -159,7 +148,7 @@
        document.getElementById("emnlp").innerHTML = daysEMNLP + "w " + hoursEMNLP + "d ";
        <!--document.getElementById("computel").innerHTML = daysComputEL + "w " + hoursComputEL + "d ";-->
        <!--document.getElementById("ud").innerHTML = daysUD + "w " + hoursUD + "d ";-->
-       document.getElementById("eacl").innerHTML = daysEACL + "w " + hoursEACL + "d ";
+       document.getElementById("ranlp").innerHTML = daysRANLP + "w " + hoursRANLP + "d ";
        <!--document.getElementById("negative").innerHTML = daysNegative + "w " + hoursNegative + "d ";-->
        document.getElementById("naacl").innerHTML = daysNAACL + "w " + hoursNAACL + "d ";
        // If the count down is over, write some text 
@@ -183,9 +172,9 @@
 		       clearInterval(x);
 		       document.getElementById("emnlp").innerHTML = "EXPIRED";
 		       }
-       if (distanceEACL < 0 ) {
+       if (distanceRANLP < 0 ) {
 		       clearInterval(x);
-		       document.getElementById("eacl").innerHTML = "EXPIRED";
+		       document.getElementById("ranlp").innerHTML = "EXPIRED";
 		       }
        if (daysNAACL < 0) {
 		       clearInterval(x);
