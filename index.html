@@ -28,20 +28,9 @@
 	 <tbody>
 	   <br>
 	  
-	    
-	    <tr class="danger">
-             <td><a style="color:#6f6767" href="https://2021.aclweb.org/calls/papers/" target="_blank" > <b>ACL</b></a></td>
-             <td>01 Feb</td>
-	     <td>05 May</td>
-	     <td><p id="acl" align="right"></p></td>
-	   </tr>
+	   
 
-	   <tr style="background:#ffccb3">
-            <td><a style="color:#6f6767" href="https://nodalida2021.github.io/cfp.html" target="_blank"><b>NoDaLiDa</b></a></td>
-             <td>08 Feb</td>
-	     <td>22 Mar</td>
-	     <td><p id="noda" align="right"></p></td>
-	   </tr>
+	  
 
 	   
 	   <tr style="background:#c2c2d6">
@@ -50,38 +39,56 @@
 	     <td>31 May</td>
 	     <td><p id="iwpt" align="right"></p></td>
 	   </tr>
-
-	   
 	   <tr class="success">
-	     <td><a style="color:#6f6767" href="https://ranlp.org/ranlp2021/start.php"><b>RANLP</td>               
-	     <td>15 May</td>
-	     <td>31 Jul</td>
-	     <td><p id="ranlp" align="right"></p></td>
-	   </tr>
-	   
-	    <tr style="background:#cad5d9">
-              <td><a style="color:#6f6767" href="https://2021.emnlp.org/call-for-papers" target="_blank">
-		  <b>EMNLP</b></a></td>
+             <td><a style="color:#6f6767" href="https://2021.emnlp.org/call-for-papers" target="_blank">
+		 <b>EMNLP</b></a></td>
              <td>10 May</td>
 	     <td>25 Aug</td>
 	     <td><p id="emnlp" align="right"></p></td>
 	   </tr>
 
-	   
-
-	    <tr style="background:#c4a8a8">
-             <td><a style="color:#6f6767" href="https://www.mind.org.uk/cy/gwybodaeth-a-chefnogaeth/iselder/yngl%c5%b7n-ag-iselder/" target="_blank"><b>UNK</b></a></td>
-             <td>UNK</td>
-	     <td>UNK</td>
-	     <td><p id="naacl" align="right"></p></td>
+	   <tr style="background:#c4a8a8">
+             <td><a style="color:#6f6767" href="https://conll.org/" target="_blank"><b>CoNLL</b></a></td>
+             <td>14 Jun</td>
+	     <td>31 Aug</td>
+	     <td><p id="conll" align="right"></p></td>
 	    </tr>
 
+	   
+	   <tr style="background:#cad5d9">
+	     <td><a style="color:#6f6767" href="https://ranlp.org/ranlp2021/start.php"><b>RANLP</td>               
+	     <td>15 Jun</td>
+	     <td>26 Jul</td>
+	     <td><p id="ranlp" align="right"></p></td>
+	   </tr>
+	   
+	   
+
+	   
+
+	 
 	      <tr style="background:#d2f9f3">
              <td><a style="color:#6f6767" href="" target="_blank"><b>UNK</b></a></td>
              <td>UNK</td>
 	     <td>UNK</td>
 	     <td><p id="ijcai" align="right"></p></td>
-	   </tr> 
+	      </tr>
+
+	       
+	    <tr class="danger">
+             <td><a style="color:#6f6767" href="https://2021.aclweb.org/calls/papers/" target="_blank" > <b>UNK</b></a></td>
+             <td>UNK</td>
+	     <td>UNK</td>
+	     <td><p id="acl" align="right"></p></td>
+	    </tr>
+
+
+	   <tr style="background:#ffccb3">
+            <td><a style="color:#6f6767" href="https://nodalida2021.github.io/cfp.html" target="_blank"><b>UNK</b></a></td>
+             <td>UNK</td>
+	     <td>UNK</td>
+	     <td><p id="noda" align="right"></p></td>
+	   </tr>
 	 </tbody>
 	 </table>
      </div>
@@ -95,9 +102,9 @@
        var countDownDateEMNLP = new Date("May 10, 2021 23:59:59").getTime();
        var countDownDateComputEL = new Date("Sep 1, 2020 23:59:59").getTime();
        var countDownDateUD = new Date("Sep 4, 2020 23:59:59").getTime();
-       var countDownDateRANLP = new Date("May 15, 2021 23:59:59").getTime();
+       var countDownDateRANLP = new Date("Jun 15, 2021 23:59:59").getTime();
        var countDownDateNegative = new Date("Aug 15, 2020 23:59:59").getTime();
-       var countDownDateNAACL = new Date("Nov 23, 2020 23:59:59").getTime();
+       var countDownDateCoNLL = new Date("Jun 14, 2021 23:59:59").getTime();
        // Update the count down every 1 second
        var x = setInterval(function() {
 
@@ -115,7 +122,7 @@
        var distanceUD = countDownDateUD - now;
        var distanceRANLP = countDownDateRANLP - now;
        var distanceNegative = countDownDateNegative - now;
-       var distanceNAACL = countDownDateNAACL - now;
+       var distanceCoNLL = countDownDateCoNLL - now;
        
        // Time calculations for days, hours, minutes and seconds
        var daysACL = Math.floor(distanceACL / (1000 * 60 * 60 * 24) /7);
@@ -137,8 +144,8 @@
        
        var daysNegative = Math.floor(distanceNegative / (1000 * 60 * 60 * 24) /7);
        var hoursNegative = Math.floor((distanceNegative / (1000*60*60*24))-daysNegative*7);
-       var daysNAACL = Math.floor(distanceNAACL / (1000 * 60 * 60 * 24) /7);
-       var hoursNAACL = Math.floor((distanceNAACL / (1000*60*60*24))-daysNAACL*7);
+       var daysCoNLL = Math.floor(distanceCoNLL / (1000 * 60 * 60 * 24) /7);
+       var hoursCoNLL = Math.floor((distanceCoNLL / (1000*60*60*24))-daysCoNLL*7);
        // Output the result in an element with id="demo"
        document.getElementById("acl").innerHTML = daysACL + "w " + hoursACL + "d ";
        document.getElementById("noda").innerHTML = daysNoDa + "w " + hoursNoDa + "d ";
@@ -149,7 +156,7 @@
        <!--document.getElementById("ud").innerHTML = daysUD + "w " + hoursUD + "d ";-->
        document.getElementById("ranlp").innerHTML = daysRANLP + "w " + hoursRANLP + "d ";
        <!--document.getElementById("negative").innerHTML = daysNegative + "w " + hoursNegative + "d ";-->
-       document.getElementById("naacl").innerHTML = daysNAACL + "w " + hoursNAACL + "d ";
+       document.getElementById("conll").innerHTML = daysCoNLL + "w " + hoursCoNLL + "d ";
        // If the count down is over, write some text 
        if (distanceACL < 0) {
 		       clearInterval(x);
@@ -161,7 +168,7 @@
 		       }
        if (distanceIWPT < 0) {
 		       clearInterval(x);
-		       document.getElementById("coling").innerHTML = "EXPIRED";
+		       document.getElementById("iwpt").innerHTML = "EXPIRED";
 		       }
        if (distanceICJAI < 0) {
 		       clearInterval(x);
@@ -175,9 +182,9 @@
 		       clearInterval(x);
 		       document.getElementById("ranlp").innerHTML = "EXPIRED";
 		       }
-       if (daysNAACL < 0) {
+       if (daysCoNLL < 0) {
 		       clearInterval(x);
-		       document.getElementById("naacl").innerHTML = "EXPIRED";
+		       document.getElementById("conll").innerHTML = "EXPIRED";
 		       }
 		}, 1000)
 		;    
