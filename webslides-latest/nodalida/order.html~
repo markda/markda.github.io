@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>On the Frailty of Universal POS Tags for Neural UD Parsers</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <!-- CSS Base -->
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type='text/css' media='all' href="../static/css/svg-icons.css">
+    <link rel="icon" href="https://markda.github.io/webslides-latest/IMG/fast-logo-sin-palabras-outline-dark.png">
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+  </head>
+  <body>
+    <main role="main">
+      <article id="webslides">
+
+        <!-- Quick Guide
+          - Each parent <section> in the <article id="webslides"> element is an individual slide.
+          - Vertical sliding = <article id="webslides" class="vertical">
+          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+        -->
+
+	<!-- Title Page -->
+        <section class="bg-black-blue aligncenter">
+
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/zZdxxAEhOYg/')"></span>
+	  -->
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/FqtgyYgBLyQ/')"></span>-->
+          <!--.wrap = container (width: 90%) -->
+	 
+	  <!--<span class="background dark" style="background-image:url('https://source.unsplash.com/5j9_AGfNqV4/')"></span>-->
+	  <span class="background dark" style="background-image:url('../IMG/unaImagenBorrosaDeNieve.jpg')"></span>
+          <div class="wrap">
+	    <h1 class="text-landing">On the Frailty of Universal POS Tags for Neural UD Parsers</h1>
+            <p class="text-subtitle">Mark Anderson and Carlos Gómez-Rodríguez</p>
+          </div>
+	  <footer>
+	    <span class="alignright">
+	      <img src="../IMG/eu-flag.jpg" style="margin-left: 2.5em" ></img>
+	      <img src="../IMG/erc-logo.png" ></img>
+
+	      <p class="text-subtitle" style="margin-left: 2.5em">ERC</p>
+	    </span>
+	    <span class="alignright">
+	      <img src="../IMG/coruna-logo.png"></img>
+	      <p class="text-subtitle">University of A Coruña</p>
+	    </span>
+	    <span class="alignleft">
+		<img src="../IMG/fast-logo-sin-palabras.png" style="margin-right: 2.5em"></img>
+		<p class="text-subtitle" style="margin-right: 2.5em">FASTPARSE project</p>
+	    </span>
+	    
+	    <span class="alignleft">
+	      <img src="../IMG/lys-logo.png" style="margin-right: 2.5em"></img>
+	      <p class="text-subtitle" style="margin-right: 2.5em" >LYS group</p>
+	    </span>
+
+	    <span class="alignleft">
+	      <img src="../IMG/citic.png"></img>
+	      <p class="text-subtitle">CITIC</p>
+	    </span>	    
+	  </footer>
+	</section>
+
+
+
+	<section>
+	  <div class="wrap size-60">
+	    <h2 class="text-landing" align="center" style="margin-top: -1.5em">Parsers</h2>
+	    <hr>
+	    <div class="grid">
+	      <div class="column">
+		<h4 class="aligncenter"><strong>UUParser</strong></h4>
+		<p style="font-size: 1.25em">Transition-based parser out of Uppsala developed from BIST Parser (Smith el al., 2018; Kiperwasser and Goldberg, 2016).</p>
+	      </div>
+	       <div class="column">
+		 <h4 class="aligncenter"><strong>Biaffine</strong></h4>
+		 <p style="font-size: 1.25em">Graph-based parser using BiLSTMs as well (Dozat and Manning, 2017).</p>
+	       </div>
+	    </div>
+	    <hr>
+	    <h4 align="center">word⊕char⊕upos</h4>
+	    <p align="center" style="font-size: 1.25em">External pre-trained word embeddings, mainly fastText (Grave et al. 2018)</p>
+	  </div>
+	</section>
+
+		<section class="bg-black">
+	  <span class="background dark" style="background-image:url('img/forest.jpg')"></span>
+	  <div class="wrap">
+            <h3 class="text-landing" >Treebanks</h3>
+	    <p class="small" >Universal Dependency Treebanks v2.4 (Nivre et al., 2019)</p>
+            <!-- li>a? Add blink = <ul class="flexblock metrics blink">-->
+            <ul class="flexblock metrics border">
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Ancient Greek Perseus</p>
+		<p style="margin-bottom: -.25em">Indo-European, Greek</p>
+                <p >11K sents, 14.9 mean length, mDD 4.1 </p>
+              </li>
+              <li>
+                <p class="small-bigger" style="margin-bottom: 0.5em">Chinese GSD</p>
+		<p style="margin-bottom: -.25em">Sino-Tibetan, Sinitic</p>
+                <p >4K sents, 25.7 mean length, mDD 4.7 </p>
+              </li>
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">English EWT</p>
+		<p style="margin-bottom: -.25em">Indo-European, Germanic</p>
+                <p >13K sents, 17.3 mean length, mDD 3.7 </p>
+              </li>
+            </ul>
+	    <ul class="flexblock metrics border">
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Finnish TDT</p>
+		<p style="margin-bottom: -.25em">Uralic, Finnic</p>
+                <p >12K sents, 14.3 mean length, mDD 3.4 </p>
+              </li>
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Hebrew HTB</p>
+		<p style="margin-bottom: -.25em">Afro-Asiatic, Semitic</p>
+                <p >5K sents, 27.3 mean length, mDD 3.9 </p>
+              </li>
+	      <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Russian GSD</p>
+		<p style="margin-bottom: -.25em">Indo-European, Balto-Slavic</p>
+                <p >4K sents, 20.5 mean length, mDD 3.5 </p>
+              </li>
+	    </ul>
+	    <ul class="flexblock metrics border">
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Tamil TTB</p>
+		<p style="margin-bottom: -.25em">Dravidian, Southern</p>
+                <p >400 sents, 16.8 mean length, mDD 3.5 </p>
+              </li>
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Uyghur UDT</p>
+		<p style="margin-bottom: -.25em">Turkic, Karluk</p>
+                <p >2K sents, 12.6 mean length, mDD 3.5 </p>
+              </li>
+              <li>
+		<p class="small-bigger" style="margin-bottom: 0.5em">Wolof WTB</p>
+		<p style="margin-bottom: -.25em">Niger-Congo, Senegambian</p>
+                <p >1K sents, 20.8 mean length, mDD 3.5 </p>
+              </li>
+            </ul>
+          </div>
+	  <div align="right" style="margin-top: 2em; margin-right: 4em; font-size: .8em" class="footer-copyright text-left py-3">Same as Anderson and Gómez-Rodríguez (2020) and based on treebanks suggested by de Lhoneux et al. (2017).
+	  </div>
+</div>
+</section>
+
+	
+	
+	<section >
+	  <div class="wrap size-80">
+            <h2 class="text-landing" align="center" style="margin-top: -1.5em">Experiments</h2>
+	    </hr>
+	    <div class="grid">
+              <div class="column">
+		<h4><strong>Experiment 1</strong><h4>
+                <h4>UPOS accuracy as a controlled variable.</h4>
+              </div>
+              <div class="column">
+		<h4><strong>Experiment 2</strong><h4>
+                <h4>UPOS accuracy and character embedding size as controlled variables.</h4>
+              </div>
+              <div class="column">
+		<h4><strong>Experiment 3</strong><h4>
+		<h4>Evaluating utility of UPOS tags for treebanks with very high scoring taggers.</h4>
+              </div>
+            </div>
+          </div>
+	</section>
+
+
+
+	<section >
+	  <div class="wrap size-80">
+            <h3 class="aligncenter text-landing" style="margin-top: -1.5em">Controlling UPOS Accuracy</h3>
+	    <hr>
+	    <div class="wrap">
+	    <div class="grid sm">
+	      <div class="column">
+		<ul class="description">
+		  <li>
+		    <span class="text-label">NCRF++:</span> Sequence-labelling framework developed by Yang and Zhang (2018).
+		  </li>
+		  <li>
+		    <span class="text-label">Bins:</span> 2.5±0.3 from 60 to 80 and 1±0.3 from 80 onwards.
+		  </li>
+		  <li>
+		    <span class="text-label">Parsers:</span> For training used gold tags and a subset of accuracy bins (60, 70, 80, 86, 91, and 93). We used the whole range for gold trained parsers, but used the equivalent bin for the parsers trained with predicted tags.
+		  </li>
+		</ul>
+	      </div>
+	      <div class="column">
+		<img class="aligncenter" src="img/ncrf.png"/>
+	      </div>
+	    </div>
+	  </div>
+          </div>
+	</section>
+
+ 
+        <section class="bg-white">
+	  <div class="wrap size-60">
+	    <h3 id="arse" class="text-landing" style="margin-bottom:-1.em" align="center">
+	    </h3>
+	  </div>
+	  <div class="wrap-60">
+	    <img class="aligncenter" src="img/experiment1.svg"/>
+	  </div>
+        </section>
+
+	 <section class="bg-white">
+	  <div class="wrap size-60">
+	    <h3  style="margin-bottom:-1.em" align="center">
+	      Tamil - UUParser
+	    </h3>
+	  </div>
+	  <div class="wrap">
+	    <div class="grid">
+	      <div class="column">
+		<img class="aligncenter" src="img/tamil-uas.png"/>
+	      </div>
+	       <div class="column">
+		<img class="aligncenter" src="img/tamil-las.png"/>
+	       </div>
+	    </div>
+	  </div>
+         </section>
+
+	 <section class="bg-white">
+	  <div class="wrap size-60">
+	    <img class="aligncenter" src="img/experiment2.svg"/>
+	  </div>
+         </section>
+	 
+	 <section>
+	   <div class="wrap size-60">
+	     <h3  style="margin-bottom:-1.em" align="center">
+	       Without UPOS Tags
+	    </h3>
+	     <table style="text-align:center; background: #dee7ed">
+	       <col>
+	      <colgroup span="5"></colgroup>
+              <thead>
+		<tr>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+		 <th style="background: #dee7ed; text-align: center" colspan="2">Biaffine</th>
+		  <th style="background: #dee7ed; text-align: center" colspan="2">UUParser</th>
+		</tr>
+		<tr>
+		  <th style="background: #dee7ed; text-align: center" colspan="1">Char Emb. Size</th>
+		  <th style="text-align: center">UAS</th>
+		 <th style="text-align: center">LAS</th>
+		 <th style="text-align: center">UAS</th>
+		 <th style="text-align: center">LAS</th>
+		</tr>
+	      </thead>
+	      <tbody>
+                <tr>
+		  <td>32</td>
+		  <td>84.0 (5.9)</td>
+		  <td>78.6 (8.7)</td>
+		  <td>77.9 (8.3)</td>
+		  <td>71.9 (10.0)</td>
+		</tr>
+                <tr>
+		  <td>100</td>
+		  <td>83.9 (6.3)</td>
+		  <td>78.6 (8.9)</td>
+		  <td>79.0 (7.3)</td>
+		  <td>73.0 (9.3)</td>
+		</tr>
+		<tr>
+		  <td>180</td>
+		  <td>83.4 (6.8)</td>
+		  <td>78.1 (9.4)</td>
+		  <td>79.1 (7.2)</td>
+		  <td>73.1 (9.2)</td>
+		</tr>
+		<tr>
+		  <td>325</td>
+		  <td>83.6 (6.7)</td>
+		  <td>78.1 (9.5)</td>
+		  <td>79.2 (7.1)</td>
+		  <td>73.3 (8.9)</td>
+		</tr>
+		<tr>
+		  <td>500</td>
+		  <td>83.6 (6.4)</td>
+		  <td>78.1 (9.1)</td>
+		  <td>79.3 (7.0)</td>
+		  <td>73.4 (8.8)</td>
+		</tr>
+	      </tbody>
+         </table>
+	   </div>
+	 </section>
+
+
+
+	 <section>
+	   <div class="wrap size-60">
+	     <h3  style="margin-bottom:-1.em" align="center">
+	       High Accuracy Taggers
+	    </h3>
+	     <table style="text-align:center; background: #dee7ed">
+	       <col>
+	      <colgroup span="6"></colgroup>
+              <thead>
+		<tr>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-bottom: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+		 <th style="background: #dee7ed; text-align: center" colspan="2">Biaffine</th>
+		  <th style="background: #dee7ed; text-align: center" colspan="2">UUParser</th>
+		  <th style="background: #f7f9fb; border-right: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+		</tr>
+		<tr>
+		  <th style="background: #f7f9fb; border-left: 1px solid #f7f9fb; border-top-color: #f7f9fb"></th>
+		  <th style="text-align: center">UAS</th>
+		 <th style="text-align: center">LAS</th>
+		 <th style="text-align: center">UAS</th>
+		  <th style="text-align: center">LAS</th>
+		  <th style="text-align: center">UPOS</th>
+		</tr>
+	      </thead>
+	      <tbody>
+                <tr>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+                <tr>
+		  <td align="right"><h5 align="left"><i>Catalan-AnCora</i></h5> Predicted<br>None</td>
+		  <td><br>92.59<br><strong>92.89</strong></td>
+		  <td><br>89.57<br><strong>90.33</strong></td>
+		  <td><br><strong>90.88</strong><br>90.82</td>
+		  <td><br><strong>88.03</strong><br>87.92</td>
+		  <td><br>98.26<br>n/a</td>
+		</tr>
+		<tr>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+                <tr>
+		  <td align="right"><h5 align="left"><i>Japanese-GSD</i></h5> Predicted<br>None</td>
+		  <td><br>95.02<br><strong>95.12</strong></td>
+		  <td><br>93.66<br><strong>93.54</strong></td>
+		  <td><br><strong>94.56</strong><br>94.47</td>
+		  <td><br><strong>92.94</strong><br>92.74</td>
+		  <td><br>97.69<br>n/a</td>
+		</tr>
+		<tr>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+                <tr>
+		  <td align="right"><h5 align="left"><i>Polish-PDB</i></h5> Predicted<br>None</td>
+		  <td><br>92.78<br><strong>93.64</strong></td>
+		  <td><br>89.97<br><strong>90.94</strong></td>
+		  <td><br>89.25<br><strong>89.32</strong></td>
+		  <td><br>85.57<br><strong>85.60</strong></td>
+		  <td><br>97.52<br>n/a</td>
+		</tr>
+		<tr>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+                <tr>
+		  <td align="right"><h5 align="left"><i>Latin-ITTB</i></h5> Predicted<br>None</td>
+		  <td><br>90.92<br><strong>91.09</strong></td>
+		  <td><br>88.47<br><strong>88.74</strong></td>
+		  <td><br>86.99<br><strong>87.25</strong></td>
+		  <td><br>83.99<br><strong>84.25</strong></td>
+		  <td><br>97.46<br>n/a</td>
+		</tr>
+	      </tbody>
+         </table>
+	   </div>
+	 </section>
+
+	 <section class="bg-white">
+	   <h3  style="margin-bottom:-1.em" align="center">
+	     Correlation: LAS and UPOS F1 
+	    </h3>
+	   <div class="wrap-60">
+	     <img class="aligncenter" src="img/acc-1.svg"/>
+	   </div>
+	 </section>
+
+	 <!--<section class="bg-white">
+	    <h3  style="margin-bottom:-1.em" align="center">Correlation: LAS and head UPOS F1</h3>
+	   <div class="wrap-60">
+	     <img class="aligncenter" src="img/head_acc-1.svg"/>
+	   </div>
+	 </section>-->
+
+	 <section class="bg-white">
+	   <h3 style="margin-bottom:-1.em" align="center">
+	     Correlation: LAS and F1 of child-head tag pairs 
+	    </h3>
+	   <div class="wrap-60">
+	     <img class="aligncenter" src="img/child-head-1.svg"/>
+	   </div>
+	 </section>
+
+	 <section class="bg-white">
+	   <h3  style="margin-bottom:-1.em" align="center">
+	     Correlation: LAS and F1 of UPOS and dependency distance pairs
+	    </h3>
+	   <div class="wrap-60">
+	     <img class="aligncenter" src="img/distance-1.svg"/>
+	   </div>
+	 </section>
+
+	 <section class="bg-white">
+	   <h3  style="margin-bottom:-1.em" align="center">
+	     Correlation: LAS and error rate
+	    </h3>
+	   <div class="wrap-60">
+	     <img class="aligncenter" src="img/error-1.svg"/>
+	   </div>
+	 </section>
+	 
+	 
+	 <section class="slide-top aligncenter">
+	  <div class="wrap size-40">
+	    <h1 style="margin-bottom: 2em">Acknowledgements</h1>
+	  	  <p align="left">This work has received funding from the European Research Council (ERC), under the European
+	    Union’s Horizon 2020 research and innovation programme (FASTPARSE, grant agreement No 714150).
+	  </p>
+	  </div>
+	</section>
+	
+	<section>
+	  <h1 align="center">References</h1>
+	  <ol>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Eliyahu Kiperwasser and Yoav Goldberg.</span> <u>2016</u>. <em>Simple and accurate dependency parsing using bidirectional LSTM feature representations,</em> TACL.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Timothy Dozat and Christopher D Manning.</span> <u>2017</u>. <em>Deep biaffine attention for neural dependency parsing,</em> ICLR.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Edouard Grave, Piotr Bojanowski, and Prakhar Gupta.</span> <u>2018</u>. <em>Learning word vectors for 157 languages,</em> LREC.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Aaron Smith, Miryam de Lhoneux, Sara Stymne, and Joakim Nivre.</span> <u>2018</u>. <em>An investigation of the interactions between pre-trained word embeddings, character models and POS tags in dependency parsing,</em> EMNLP.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Jie Yang and Yue Zhang</span> <u>2019</u>. <em>NCRF++: An open-source neural sequence labeling toolkit,</em> ACL.
+	    </li>
+	    <li>
+	     <span style="font-variant: small-caps; font-size: 1.1em;">Michalina Strzyz, David Vilares, and Carlos GómezRodrı́guez.</span> <u>2019</u>. <em>Viable dependency parsing as sequence labeling,</em> NAACL.
+	    </li>
+	     <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Joakim Nivre, Mitchell Abrams, Željko Agić, et al.</span> <u>2019</u>. <em>Universal Dependencies 2.4,</em> LINDAT/CLARIN digital library at ÚFAL, Faculty of Mathematics and Physics, Charles University.
+	    </li>
+	    <li>
+	      <span style="font-variant: small-caps; font-size: 1.1em;">Mark Anderson, and Carlos Gómez-Rodrı́guez.</span> <u>2020</u>. <em>Distilling neural networks for greener and faster dependency parsing,</em> IWPT.
+	    </li>
+	</section>
+	
+      </article>
+    </main>
+    <!--main-->
+
+    <!-- Required -->
+    <script src="../static/js/webslides.js"></script>
+
+    <script>
+      window.ws = new WebSlides();
+
+    </script>
+
+    
+    
+    
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="../static/js/svg-icons.js"></script>
+
+  </body>
+</html>
