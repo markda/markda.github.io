@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <br/>
+  <div class="container">
+<div class="jumbotron text-center">
+  <h1>Rodion Romanovich Raskolnikov</h1>
+  <p>Resize this responsive page to see the effect!</p>
+</div></div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor..</p>
+      <p>Ut enim ad..</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor..</p>
+      <p>Ut enim ad..</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>
+      <p>Lorem ipsum dolor..</p>
+      <p>Ut enim ad..</p>
+    </div>
+  </div>
+  </div>
+  <div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">Panel Heading</div>
+  <div class="panel-body">Panel Content</div>
+</div>
+  </div>
+   <div class="container">
+     <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+      
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+      
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+    </ul>
+  </div>
+   </div>
+   <br/>
+   <div class="container">
+   <div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">Doubtless in the old days at Combray certain impressions of a very humble order, or a few pages of Bergotte used to plunge me into a state of mussing which had appeared to me to be of great value. But this state was what my poem in prose reflected; there could be no doubt that M. de Norpois had at once grasped and had seen through the fallacy of mwhat I had discovered to be beautiful simply by a mirage that must be entirely false since the Ambassador had not been take in by it. He had shewn me, on the other hand, what an infinitelt unimportant place was mine whn I was judged from the outside, objectively, by the best-disposed and most intelligent of experts. I felt myself to be struck speechless, overwhelmed; and my mind, like a fluid which is without dimensions save those of the vessel that is provided for it, just as it had been expanded a moment ago so as to fill all the vast capacity of genius, contracted now, was entirely contained in the straitened mediocrity in which M. de Norpois had of a sudden enclosed and sealed it.</div>
+      <!--<div class="panel-footer">Panel Footer</div>-->
+    </div>
+  </div>
+   </div>
+   </div>
+
+   <div class="container">
+     <div class="row">
+       <div class="col-sm-5"></div>
+       <div class="col-sm-2">
+     <ul>
+       <li><a class="btn btn-default btn-block" href="#">Home</a></li>
+       <li><a class="btn btn-default btn-block" href="#">Reminders</a></li>
+       <li><a class="btn btn-default btn-block" href="#">Menu 2</a></li>
+       <li><a class="btn btn-default btn-block" href="#">Menu 3</a></li>
+     </ul>
+     </div>
+     <div class="col-sm-5"></div>
+     </div>
+   </div> 
+ <br/>
+  <div class="container">
+
+    <!-- Centered Pills -->
+<ul class="nav nav-pills nav-justified nav-default">
+  <!--<li class="active default"><a href="#">Home</a></li>-->
+  <li><a class="btn btn-default active" href="#">Home</a></li>
+  <li><a class="btn btn-default" href="#">Reminders</a></li>
+  <li><a class="btn btn-default" href="#">Menu 2</a></li>
+  <li><a class="btn btn-default" href="#">Menu 3</a></li>
+</ul>
+</div>
+
+<div class="container text-center ">
+  
+    <ul class="list-group">
+  <li class="list-group-item">First item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+    </ul>
+  
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5"></div>
+        <div class="col-sm-2">
+	  <a href="test.html" class="btn btn-default btn-block" role="button"><h4>Link Button</h4></a>
+	  </div>
+    <div class="col-sm-5"></div>
+    </div>
+</div>
+<br />
+
+<div class="container">
+  <blockquote>
+    <p word-wrap:break-word;>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
+    <footer>From WWF's website</footer>
+  </blockquote>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-xs-4">.col-sm-4</div>
+  <div class="col-xs-4">.col-sm-4</div>
+  <div class="col-xs-4">.col-sm-4</div>
+  
+  <div class="col-xs-4">.col-sm-4</div>
+  <div class="col-xs-4">.col-sm-4</div>
+  <div class="col-xs-4">.col-sm-4</div>
+  </div>
+</div></div></div>
+
+
+</html>
