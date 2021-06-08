@@ -1,9 +1,0 @@
-#+STARTUP: showall 
-
-* First Sections
-  - [[https://markda.github.io][Not really a blog.]]
-
-* Second Section
-Some intro speel
-** Second Subsection
-MARK ME DOWN!!!
