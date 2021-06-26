@@ -1,0 +1,145 @@
+@inproceedings{anderson-gomez-rodriguez-2021-taggers,
+    title = "What Taggers Fail to Learn, Parsers Need the Most",
+    author = "Anderson, Mark  and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 23rd Nordic Conference on Computational Linguistics (NoDaLiDa)",
+    month = may # " 31-2 " # jun,
+    year = "2021",
+    address = "Reykjavik, Iceland (Online)",
+    publisher = {Link{\"o}ping University Electronic Press, Sweden},
+    url = "https://www.aclweb.org/anthology/2021.nodalida-main.31",
+    pages = "309-314",
+    abstract = "We present an error analysis of neural UPOS taggers to evaluate why using gold tags has such a large positive contribution to parsing performance while using predicted UPOS either harms performance or offers a negligible improvement. We also evaluate what neural dependency parsers implicitly learn about word types and how this relates to the errors taggers make, to explain the minimal impact using predicted tags has on parsers. We then mask UPOS tags based on errors made by taggers to tease away the contribution of UPOS tags that taggers succeed and fail to classify correctly and the impact of tagging errors.",
+}
+
+@inproceedings{anderson-gomez-rodriguez-2020-distilling,
+    title = "Distilling Neural Networks for Greener and Faster Dependency Parsing",
+    author = "Anderson, Mark  and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 16th International Conference on Parsing Technologies and the IWPT 2020 Shared Task on Parsing into Enhanced Universal Dependencies",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.iwpt-1.2",
+    doi = "10.18653/v1/2020.iwpt-1.2",
+    pages = "2-13",
+    abstract = "The carbon footprint of natural language processing research has been increasing in recent years due to its reliance on large and inefficient neural network implementations. Distillation is a network compression technique which attempts to impart knowledge from a large model to a smaller one. We use teacher-student distillation to improve the efficiency of the Biaffine dependency parser which obtains state-of-the-art performance with respect to accuracy and parsing speed (Dozat and Manning, 2017). When distilling to 20{\%} of the original model{'}s trainable parameters, we only observe an average decrease of âˆ¼1 point for both UAS and LAS across a number of diverse Universal Dependency treebanks while being 2.30x (1.19x) faster than the baseline model on CPU (GPU) at inference time. We also observe a small increase in performance when compressing to 80{\%} for some treebanks. Finally, through distillation we attain a parser which is not only faster but also more accurate than the fastest modern parser on the Penn Treebank.",
+}
+
+@inproceedings{dehouck-etal-2020-efficient,
+    title = "Efficient {EUD} Parsing",
+    author = "Dehouck, Mathieu  and
+      Anderson, Mark  and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 16th International Conference on Parsing Technologies and the IWPT 2020 Shared Task on Parsing into Enhanced Universal Dependencies",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.iwpt-1.20",
+    doi = "10.18653/v1/2020.iwpt-1.20",
+    pages = "192-205",
+    abstract = "We present the system submission from the FASTPARSE team for the EUD Shared Task at IWPT 2020. We engaged with the task by focusing on efficiency. For this we considered training costs and inference efficiency. Our models are a combination of distilled neural dependency parsers and a rule-based system that projects UD trees into EUD graphs. We obtained an average ELAS of 74.04 for our official submission, ranking 4th overall.",
+}
+
+@inproceedings{anderson-gomez-rodriguez-2020-frailty,
+    title = "On the Frailty of Universal {POS} Tags for Neural {UD} Parsers",
+    author = "Anderson, Mark  and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 24th Conference on Computational Natural Language Learning",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.conll-1.6",
+    doi = "10.18653/v1/2020.conll-1.6",
+    pages = "69-96",
+    abstract = "We present an analysis on the effect UPOS accuracy has on parsing performance. Results suggest that leveraging UPOS tags as fea-tures for neural parsers requires a prohibitively high tagging accuracy and that the use of gold tags offers a non-linear increase in performance, suggesting some sort of exceptionality. We also investigate what aspects of predicted UPOS tags impact parsing accuracy the most, highlighting some potentially meaningful linguistic facets of the problem.",
+}
+
+@inproceedings{anderson-gomez-rodriguez-2020-inherent,
+    title = "Inherent Dependency Displacement Bias of Transition-Based Algorithms",
+    author = "Anderson, Mark  and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 12th Language Resources and Evaluation Conference",
+    month = may,
+    year = "2020",
+    address = "Marseille, France",
+    publisher = "European Language Resources Association",
+    url = "https://www.aclweb.org/anthology/2020.lrec-1.633",
+    pages = "5147-5155",
+    abstract = "A wide variety of transition-based algorithms are currently used for dependency parsers. Empirical studies have shown that performance varies across different treebanks in such a way that one algorithm outperforms another on one treebank and the reverse is true for a different treebank. There is often no discernible reason for what causes one algorithm to be more suitable for a certain treebank and less so for another. In this paper we shed some light on this by introducing the concept of an algorithm{'}s inherent dependency displacement distribution. This characterises the bias of the algorithm in terms of dependency displacement, which quantify both distance and direction of syntactic relations. We show that the similarity of an algorithm{'}s inherent distribution to a treebank{'}s displacement distribution is clearly correlated to the algorithm{'}s parsing performance on that treebank, specificially with highly significant and substantial correlations for the predominant sentence lengths in Universal Dependency treebanks. We also obtain results which show a more discrete analysis of dependency displacement does not result in any meaningful correlations.",
+    language = "English",
+    ISBN = "979-10-95546-34-4",
+}
+
+@inproceedings{anderson-etal-2019-artificially,
+    title = "Artificially Evolved Chunks for Morphosyntactic Analysis",
+    author = "Anderson, Mark  and
+      Vilares, David  and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 18th International Workshop on Treebanks and Linguistic Theories (TLT, SyntaxFest 2019)",
+    month = aug,
+    year = "2019",
+    address = "Paris, France",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/W19-7815",
+    doi = "10.18653/v1/W19-7815",
+    pages = "133-143",
+}
+
+
+@inproceedings{anderson-2021-leakage,
+    title = {Replicating and Extending ``{B}ecause Their Treebanks leak'': Graph Isomorphism, Covariants, and Parser Performance},
+    author = {Anderson, Mark and G{\'o}mez Rodr{\'\i}guez, Carlos and S{\o}gaard, Anders},
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics",
+    month = "aug",
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics"
+}
+
+@inproceedings{yova-causality-2021,
+    title = {{J}ohn praised {M}ary because \textit{he}? {I}mplicit Causality Bias and Its Interaction with Explicit Cues in {LMs}},
+    author = {Kementchedjhieva, Yova and Anderson, Mark and S{\o}gaard, Anders},
+    booktitle = "Findings of the Association for Computational Linguistics: {ACL} 2021",
+    month = "aug",
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics"
+}
+
+
+@inproceedings{anderson-gomez-rodriguez-2021-falta-de-pan,
+    title = "A Falta de Pan, Buenas Son Tortas: {T}he Efficacy of Predicted {UPOS} Tags for Low Resource {UD} Parsing",
+    author = "Anderson, Mark  and Dehouck, Mathieu and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 17th International Conference on Parsing Technologies and the IWPT 2021 Shared Task on Parsing into Enhanced Universal Dependencies",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+}
+
+@inproceedings{anderson-gomez-rodriguez-2021-pareto2021,
+    title = "A Modest {P}areto Optimisation Analysis of Dependency Parsers in 2021",
+    author = "Anderson, Mark  and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 17th International Conference on Parsing Technologies and the IWPT 2021 Shared Task on Parsing into Enhanced Universal Dependencies",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+}
+
+@inproceedings{anderson-gomez-rodriguez-2021-clatty2021,
+    title = "Splitting {EUD} graphs into trees: {A} quick and clatty approach", 
+    author = "Anderson, Mark  and
+      G{\'o}mez-Rodr{\'\i}guez, Carlos",
+    booktitle = "Proceedings of the 17th International Conference on Parsing Technologies and the IWPT 2021 Shared Task on Parsing into Enhanced Universal Dependencies",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+}
